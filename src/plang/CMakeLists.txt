@@ -1,2 +1,2 @@
 cmake_minimum_required(VERSION 2.8)
-add_library (Plang plang.cpp)
+add_library (plang plang.cpp)
