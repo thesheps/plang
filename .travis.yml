@@ -12,6 +12,9 @@ before_script:
   - cd build
   - cmake ..
 
+script: 
+  - $CXX --version
+
 addons:
   apt:
     sources:
