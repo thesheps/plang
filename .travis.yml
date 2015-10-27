@@ -1,2 +1,4 @@
 language: cpp
-solution: plang.sln
+compiler:
+  - clang
+  - gcc
