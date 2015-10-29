@@ -10,7 +10,7 @@ install:
 before_script:
   - mkdir build
   - mkdir src/gtest
-  - mv /usr/src/gtest/* /src/gtest/*
+  - mv /usr/src/gtest/* src/gtest/*
   - cd build
   - cmake ..
   - make
