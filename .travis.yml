@@ -11,7 +11,9 @@ before_script:
   - mkdir build
   - cd build
   - cmake ..
-
+  - make
+  - ./plang_unit
+  
 script: 
   - $CXX --version
 
