@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project("plang")
 
+include_directories("usr/lib/gtest")
 include_directories("src")
 link_directories   ("bin")
 
