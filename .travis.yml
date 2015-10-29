@@ -4,6 +4,9 @@ compiler:
   - clang
   - gcc
   
+before-install:
+  - sudo apt-get install libgtest-dev
+  
 install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
   
