@@ -1,9 +1,11 @@
 #include <plang/plang.h>
-#include "gtest/gtest.h"
 
 #include <iostream>
 
-TEST(main_test, first_test)
+////////////////////////////////////////////////////////////////////////////////
+int main(int argc, char** argv)
 {
-   ASSERT_TRUE(1 == 0); 
+	plang::HelloWorld();
+	std::cout << "plang_unit!" << std::endl;
+	return 0;
 }
