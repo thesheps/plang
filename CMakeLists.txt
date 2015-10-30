@@ -23,9 +23,9 @@ file(GLOB PLANG_UNIT_SRC ${PLANG_SRC_ROOT}/plang_unit/*.cpp)
 add_executable(plang_unit ${PLANG_UNIT_SRC})
 target_link_libraries(plang_unit plang)
 
-include(externalproject)
+include(ExternalProject)
 # gtest
-externalproject_add(
+ExternalProject_Add(
 	"gtest"
 	# download
 		GIT_REPOSITORY https://github.com/google/googletest.git
