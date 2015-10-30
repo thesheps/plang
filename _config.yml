@@ -4,6 +4,7 @@ description: "plang development blog"
 subheading: "An investigation into software"
 more: "read more"
 url: "https://github.com/thesheps/plang"
+baseurl: "/plang"
 
 #comments:
 #    disqus: "niklasbuschmann"
