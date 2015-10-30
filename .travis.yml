@@ -9,8 +9,6 @@ install:
   
 before_script:
   - mkdir build
-  - mkdir src/gtest
-  - mv /usr/src/gtest/* /src/gtest/*
   - cd build
   - cmake ..
   - make
@@ -27,4 +25,3 @@ addons:
     - gcc-4.8
     - g++-4.8
     - clang
-    - libgtest-dev
