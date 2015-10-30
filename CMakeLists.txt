@@ -22,16 +22,16 @@ enable_testing()
 set(PROJECT_TEST_NAME ${PROJECT_NAME_STR}_test)
 
 # plang
-file(GLOB PLANG_SRC ${PROJECT_SOURCE_DIR}/plang/*.cpp)
+file(GLOB PLANG_SRC src/plang/*.cpp)
 add_library(plang STATIC ${PLANG_SRC})
 
 # plang_go
-file(GLOB PLANG_GO_SRC ${PROJECT_SOURCE_DIR}/plang_go/*.cpp)
+file(GLOB PLANG_GO_SRC src/plang_go/*.cpp)
 add_executable(plang_go ${PLANG_GO_SRC})
 target_link_libraries(plang_go plang)
 
 # plang_unit
-file(GLOB PLANG_UNIT_SRC ${PROJECT_SOURCE_DIR}/plang_unit/*.cpp)
+file(GLOB PLANG_UNIT_SRC src/plang_unit/*.cpp)
 add_executable(plang_unit ${PLANG_UNIT_SRC})
 add_dependencies(${PROJECT_TEST_NAME} googletest)
 
