@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/plang/plang.h
+cstddef
+-
+cstdint
+-
+
+C:/source/plang/src/plang_unit/main.cpp
+plang/plang.h
+-
+iostream
+-
+

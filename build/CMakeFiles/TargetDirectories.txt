@@ -1,0 +1,3 @@
+C:/source/plang/build/CMakeFiles/plang_go.dir
+C:/source/plang/build/CMakeFiles/plang.dir
+C:/source/plang/build/CMakeFiles/plang_unit.dir
