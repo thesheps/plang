@@ -7,6 +7,7 @@ link_directories   ("bin")
 
 # sets
 set(EXT_PROJECTS_DIR ${PROJECT_SOURCE_DIR}/lib)
+set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/include)
 set(GCC_COMPILE_FLAGS "-std=c++11")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COMPILE_FLAGS}" )
 set(PROJECT_NAME_STR plang)
@@ -20,6 +21,7 @@ add_subdirectory(${EXT_PROJECTS_DIR}/gtest)
 add_definitions(${MSVC_COMPILER_DEFS})
 enable_testing()
 set(PROJECT_TEST_NAME ${PROJECT_NAME_STR}_unit)
+include_directories(${GTEST_INCLUDE_DIRS} ${COMMON_INCLUDES})
 
 # plang
 file(GLOB PLANG_SRC src/plang/*.cpp)
