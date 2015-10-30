@@ -1,6 +1,7 @@
 # All builds and intermediate build files
 lib/
 bin/
+build/
 
 # Auto-generated docs (except configs)
 docs/*

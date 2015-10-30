@@ -1,3 +1,0 @@
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\plang_go.dir/objects.a
-C:\tools\mingw64\bin\ar.exe cr CMakeFiles\plang_go.dir/objects.a @CMakeFiles\plang_go.dir\objects1.rsp
-C:\tools\mingw64\bin\g++.exe   -std=c++11   -Wl,--whole-archive CMakeFiles\plang_go.dir/objects.a -Wl,--no-whole-archive  -o plang_go.exe -Wl,--out-implib,libplang_go.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\plang_go.dir\linklibs.rsp
