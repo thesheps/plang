@@ -19,7 +19,7 @@ add_subdirectory(${EXT_PROJECTS_DIR}/gtest)
 # testing
 add_definitions(${MSVC_COMPILER_DEFS})
 enable_testing()
-set(PROJECT_TEST_NAME ${PROJECT_NAME_STR}_test)
+set(PROJECT_TEST_NAME ${PROJECT_NAME_STR}_unit)
 
 # plang
 file(GLOB PLANG_SRC src/plang/*.cpp)
