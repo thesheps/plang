@@ -22,3 +22,27 @@ target_link_libraries(plang_go plang)
 file(GLOB PLANG_UNIT_SRC ${PLANG_SRC_ROOT}/plang_unit/*.cpp)
 add_executable(plang_unit ${PLANG_UNIT_SRC})
 target_link_libraries(plang_unit plang)
+
+include(ExternalProject)
+
+# gtest
+ExternalProject_Add(
+	"gtest"
+	# download
+		GIT_REPOSITORY https://github.com/google/googletest.git
+		#SVN_REPOSITORY http://googletest.googlecode.com/svn/trunk
+	# update/patch
+		#UPDATE_COMMAND ""
+	
+	# configure
+		CONFIGURE_COMMAND cmake -G ${CMAKE_GENERATOR} "${CMAKE_CURRENT_BINARY_DIR}/gtest-prefix/src/gtest/googletest/"
+		CMAKE_ARGS -DBUILD_SHARED_LIBS=OFF
+				-Dgtest_force_shared_crt=OFF
+				-Dgtest_build_tests=OFF
+				-Dgtest_build_samples=OFF
+				-Dgtest_disable_pthreads=ON
+	# build
+		#BUILD_COMMAND ""
+	# install
+		INSTALL_COMMAND ""
+)
