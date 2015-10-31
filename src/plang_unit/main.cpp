@@ -5,5 +5,4 @@
 
 TEST(main_test, first_test)
 {
-   ASSERT_TRUE(1 == 1); 
 }
