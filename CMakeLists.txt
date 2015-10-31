@@ -46,3 +46,6 @@ ExternalProject_Add(
 	# install
 		INSTALL_COMMAND ""
 )
+
+enable_testing()
+add_test(test1 ${PROJECT_TEST_NAME})
