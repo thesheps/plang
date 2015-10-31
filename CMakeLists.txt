@@ -21,7 +21,7 @@ target_link_libraries(plang_go plang)
 # plang_unit
 file(GLOB PLANG_UNIT_SRC ${PLANG_SRC_ROOT}/plang_unit/*.cpp)
 add_executable(plang_unit ${PLANG_UNIT_SRC})
-target_link_libraries(plang_unit plang)
+target_link_libraries(plang_unit plang gtest gtest_main pthread)
 
 include(ExternalProject)
 
