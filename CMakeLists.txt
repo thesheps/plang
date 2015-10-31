@@ -48,4 +48,4 @@ ExternalProject_Add(
 )
 
 enable_testing()
-add_test(test1 ${PROJECT_TEST_NAME})
+add_test(plang_unit ${PROJECT_TEST_NAME})
