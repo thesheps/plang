@@ -11,6 +11,7 @@ before_script:
   - mkdir build
   - cd build
   - cmake ..
+  - ctest
   
 script: 
   - $CXX --version
