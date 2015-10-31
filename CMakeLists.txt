@@ -21,7 +21,9 @@ target_link_libraries(plang_go plang)
 # plang_unit
 file(GLOB PLANG_UNIT_SRC ${PLANG_SRC_ROOT}/plang_unit/*.cpp)
 add_executable(plang_unit ${PLANG_UNIT_SRC})
-target_link_libraries(plang_unit plang gtest gtest_main pthread)
+target_link_libraries(plang_unit plang)
+target_link_libraries(plang_unit ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(plang_unit ${CMAKE_THREAD_LIBS_INIT})
 
 include(ExternalProject)
 
@@ -30,9 +32,6 @@ ExternalProject_Add(
 	"gtest"
 	# download
 		GIT_REPOSITORY https://github.com/google/googletest.git
-		#SVN_REPOSITORY http://googletest.googlecode.com/svn/trunk
-	# update/patch
-		#UPDATE_COMMAND ""
 	
 	# configure
 		CONFIGURE_COMMAND cmake -G ${CMAKE_GENERATOR} "${CMAKE_CURRENT_BINARY_DIR}/gtest-prefix/src/gtest/googletest/"
@@ -41,8 +40,6 @@ ExternalProject_Add(
 				-Dgtest_build_tests=OFF
 				-Dgtest_build_samples=OFF
 				-Dgtest_disable_pthreads=ON
-	# build
-		#BUILD_COMMAND ""
 	# install
 		INSTALL_COMMAND ""
 )
