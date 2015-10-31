@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.7)
-project("plang" LANGUAGES CXX)
+project("plang")
 
 set(PLANG_SRC_ROOT "src")
 set(PLANG_EXTERN_ROOT "extern")
