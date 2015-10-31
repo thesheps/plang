@@ -45,4 +45,4 @@ ExternalProject_Add(
 )
 
 enable_testing()
-add_test(Tests ${PLANG_UNIT_SRC})
+add_test(Tests ${PLANG_UNIT_SRC}/plang_unit)
