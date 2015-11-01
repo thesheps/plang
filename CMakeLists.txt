@@ -44,3 +44,4 @@ set(CATCH_INCLUDE_DIR ${source_dir}/include CACHE INTERNAL "Path to include fold
 # Includes Catch in the project:
 include_directories(${CATCH_INCLUDE_DIR} ${COMMON_INCLUDES})
 enable_testing(true)
+add_test(Tests ${LIBRARY_OUTPUT_PATH}/plang_unit)

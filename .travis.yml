@@ -12,7 +12,7 @@ script:
   - cd build
   - cmake ..
   - $CXX --version
-  - ctest -N
+  - ctest
   
 addons:
   apt:

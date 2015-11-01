@@ -3,5 +3,5 @@
 #include "catch.hpp"
 
 TEST_CASE("Up is down, black is white.", "[factorial]") {
-	REQUIRE(1 == 2);
+	REQUIRE(1 == 1);
 }
