@@ -1,4 +1,5 @@
 # All builds and intermediate build files
+lib/
 bin/
 build/
 
