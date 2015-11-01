@@ -22,27 +22,26 @@ target_link_libraries(plang_go plang)
 file(GLOB PLANG_UNIT_SRC ${PLANG_SRC_ROOT}/plang_unit/*.cpp)
 add_executable(plang_unit ${PLANG_UNIT_SRC})
 target_link_libraries(plang_unit plang)
-target_link_libraries(plang_unit ${GTEST_BOTH_LIBRARIES})
-target_link_libraries(plang_unit ${CMAKE_THREAD_LIBS_INIT})
 
+# catch
 include(ExternalProject)
-
-# gtest
 ExternalProject_Add(
-	"gtest"
-	# download
-		GIT_REPOSITORY https://github.com/google/googletest.git
-	
-	# configure
-		CONFIGURE_COMMAND cmake -G ${CMAKE_GENERATOR} "${CMAKE_CURRENT_BINARY_DIR}/gtest-prefix/src/gtest/googletest/"
-		CMAKE_ARGS -DBUILD_SHARED_LIBS=OFF
-				-Dgtest_force_shared_crt=OFF
-				-Dgtest_build_tests=OFF
-				-Dgtest_build_samples=OFF
-				-Dgtest_disable_pthreads=ON
-	# install
-		INSTALL_COMMAND ""
+    catch
+    PREFIX ${CMAKE_BINARY_DIR}/catch
+    GIT_REPOSITORY https://github.com/philsquared/Catch.git
+    TIMEOUT 10
+    UPDATE_COMMAND ${GIT_EXECUTABLE} pull
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+    LOG_DOWNLOAD ON
 )
 
-enable_testing()
-add_test(Tests ${LIBRARY_OUTPUT_PATH}/plang_unit)
+# Expose required variable (CATCH_INCLUDE_DIR) to parent scope
+ExternalProject_Get_Property(catch source_dir)
+set(CATCH_INCLUDE_DIR ${source_dir}/include CACHE INTERNAL "Path to include folder for Catch")
+
+# Includes Catch in the project:
+add_subdirectory(${EXT_PROJECTS_DIR}/catch)
+include_directories(${CATCH_INCLUDE_DIR} ${COMMON_INCLUDES})
+enable_testing(true)
