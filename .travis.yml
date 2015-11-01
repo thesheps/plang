@@ -13,7 +13,6 @@ script:
   - cmake ..
   - make
   - make test
-  - ctest
   
 addons:
   apt:

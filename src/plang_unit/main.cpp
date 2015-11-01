@@ -1,7 +1,11 @@
-#define CATCH_CONFIG_MAIN
 #include <plang/plang.h>
-#include "catch.hpp"
 
-TEST_CASE("Up is down, black is white.", "[factorial]") {
-	REQUIRE(1 == 1);
+#include <iostream>
+
+////////////////////////////////////////////////////////////////////////////////
+int main(int argc, char** argv)
+{
+	plang::HelloWorld();
+	std::cout << "plang_unit!" << std::endl;
+	return 0;
 }
