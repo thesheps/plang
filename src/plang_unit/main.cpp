@@ -1,8 +1,7 @@
+#define CATCH_CONFIG_MAIN
 #include <plang/plang.h>
-#include "gtest/gtest.h"
+#include "catch.hpp"
 
-#include <iostream>
-
-TEST(main_test, first_test)
-{
+TEST_CASE("Up is down, black is white.", "[factorial]") {
+	REQUIRE(1 == 2);
 }

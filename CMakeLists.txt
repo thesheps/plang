@@ -42,6 +42,5 @@ ExternalProject_Get_Property(catch source_dir)
 set(CATCH_INCLUDE_DIR ${source_dir}/include CACHE INTERNAL "Path to include folder for Catch")
 
 # Includes Catch in the project:
-add_subdirectory(${EXT_PROJECTS_DIR}/catch)
 include_directories(${CATCH_INCLUDE_DIR} ${COMMON_INCLUDES})
 enable_testing(true)
