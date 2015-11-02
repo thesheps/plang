@@ -19,20 +19,20 @@ add_library(plang STATIC ${PLANG_SRC})
 
 # plang_go
 file(GLOB PLANG_GO_SRC ${PLANG_SRC_ROOT}/plang_go/*.cpp)
-add_executable(plang_go ${PLANG_GO_SRC})
-target_link_libraries(plang_go plang)
+add_executable(pgo ${PLANG_GO_SRC})
+target_link_libraries(pgo plang)
 
 # plang_unit
 file(GLOB PLANG_UNIT_SRC ${PLANG_SRC_ROOT}/plang_unit/*.cpp)
-add_executable(plang_unit ${PLANG_UNIT_SRC})
-target_link_libraries(plang_unit plang)
+add_executable(punit ${PLANG_UNIT_SRC})
+target_link_libraries(punit plang)
 
 
 # TESTS
 # plang tests
 file(GLOB PLANG_TESTS ${PLANG_TESTS_ROOT}/plang/*.cpp)
-add_executable(plang_tests ${PLANG_TESTS})
-target_link_libraries(plang_tests plang)
+add_executable(tests ${PLANG_TESTS})
+target_link_libraries(tests plang)
 
 
 # Catch
@@ -56,4 +56,4 @@ set(CATCH_INCLUDE_DIR ${source_dir}/include CACHE INTERNAL "Path to include fold
 # Includes Catch in the project:
 include_directories(${CATCH_INCLUDE_DIR} ${COMMON_INCLUDES})
 enable_testing(true)
-add_test(PlangTests ${LIBRARY_OUTPUT_PATH}/plang_tests)
+add_test(Plang ${LIBRARY_OUTPUT_PATH}/tests)
