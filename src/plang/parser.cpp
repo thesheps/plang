@@ -1,20 +1,20 @@
-#include "parser.h"
-#include <iostream>
-#include <string>
+#include <plang/parser.h>
 
-using std::string;
+#include <iostream>
+
 using namespace plang;
 
 Parser::Parser()
 {
 }
 
-std::string Parser::parse(std::string input)
+std::string Parser::parse(const std::string& _input)
 {
-	if (input == "1 + 2")
+	// lol
+	if (_input == "1 + 2")
 	{
 		return "3";
 	}
 	
-	return input;
+	return _input;
 }

@@ -1,22 +1,21 @@
-#ifndef parser_h
-#define parser_h
-
-#if   defined(__GNUC__)
-	#define PLANG_COMPILER_GNU
-#elif defined(_MSC_VER)
-	#define PLANG_COMPILER_MSVC
-#endif
+#ifndef plang_parser_h
+#define plang_parser_h
 
 #include <string>
 
-using std::string;
-
 namespace plang {
-	class Parser {
-		public:
-			Parser();
-			std::string parse(string input);	
-	};
+
+////////////////////////////////////////////////////////////////////////////////
+/// \class Parser
+////////////////////////////////////////////////////////////////////////////////	
+class Parser 
+{
+public:
+	Parser();
+	
+	std::string parse(const std::string& _input);	
+};
+
 }
 
 #endif // parser_h

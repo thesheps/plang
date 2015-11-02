@@ -1,4 +1,4 @@
-#include <plang/parser.h>
+#include <plang/plang.h>
 
 #include <iostream>
 
@@ -9,11 +9,10 @@ int main(int argc, char** argv)
 {
 	Parser parser = Parser();
 
-	while(1 == 1)
-	{
-		string input;
+	while (true) {
+		std::string input;
   		std::cout << "> ";
-  		getline (std::cin, input);
+  		getline(std::cin, input);
 
   		if (input == "exit")
   		{
