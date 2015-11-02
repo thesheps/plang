@@ -9,9 +9,6 @@
 
 #include <cstddef> // size_t
 #include <cstdint> // sized ints
-#include <string>
-
-using std::string;
 
 namespace plang {
 	typedef int8_t          sint8;
@@ -25,8 +22,6 @@ namespace plang {
 
 	typedef std::ptrdiff_t  sint;
 	typedef std::size_t     uint;
-
-	std::string Parse(string input);
 }
 
 #endif // plang_h
