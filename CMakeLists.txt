@@ -1,32 +1,33 @@
 cmake_minimum_required(VERSION 2.8.7)
 project("plang")
 
+set(PLANG_TESTS_ROOT "tests")
 set(PLANG_SRC_ROOT "src")
+set(PLANG_EXTERN_ROOT "extern")
 set(GCC_COMPILE_FLAGS "-std=c++11")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COMPILE_FLAGS}" )
 
 include_directories(${PLANG_SRC_ROOT})
+include_directories(${PLANG_TESTS_ROOT})
 link_directories   (${LIBRARY_OUTPUT_PATH})
 
+
+# LIBS
 # plang
 file(GLOB PLANG_SRC ${PLANG_SRC_ROOT}/plang/*.cpp)
 add_library(plang STATIC ${PLANG_SRC})
 
-# plang_go (pgo)
+# plang_go
 file(GLOB PLANG_GO_SRC ${PLANG_SRC_ROOT}/plang_go/*.cpp)
 add_executable(pgo ${PLANG_GO_SRC})
 target_link_libraries(pgo plang)
 
-<<<<<<< HEAD
-=======
-# plang_unit (punit)
-file(GLOB PLANG_UNIT_SRC ${PLANG_SRC_ROOT}/plang_unit/*.cpp)
-add_executable(punit ${PLANG_UNIT_SRC})
-target_link_libraries(punit plang)
-enable_testing(true)
-add_test(Plang ${LIBRARY_OUTPUT_PATH}/punit)
 
->>>>>>> 8dc874e9e7889c901f29e0eebd679e0aeb521ce2
+# TESTS
+# plang tests
+file(GLOB PLANG_TESTS ${PLANG_TESTS_ROOT}/plang/*.cpp)
+add_executable(tests ${PLANG_TESTS})
+target_link_libraries(tests plang)
 
 
 # Catch
@@ -46,5 +47,8 @@ ExternalProject_Add(
 # Expose required variable (CATCH_INCLUDE_DIR) to parent scope
 ExternalProject_Get_Property(catch source_dir)
 set(CATCH_INCLUDE_DIR ${source_dir}/include CACHE INTERNAL "Path to include folder for Catch")
+
 # Includes Catch in the project:
 include_directories(${CATCH_INCLUDE_DIR} ${COMMON_INCLUDES})
+enable_testing(true)
+add_test(Plang ${LIBRARY_OUTPUT_PATH}/tests)
