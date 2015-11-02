@@ -5,7 +5,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 int main(int argc, char** argv)
 {
-	plang::HelloWorld();
 	std::cout << "plang_unit!" << std::endl;
 	return 0;
 }

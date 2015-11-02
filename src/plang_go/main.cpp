@@ -5,7 +5,17 @@
 ////////////////////////////////////////////////////////////////////////////////
 int main(int argc, char** argv)
 {
-	plang::HelloWorld();
-	std::cout << "plang_go!" << std::endl;
-	return 0;
+	while(1 == 1)
+	{
+		string input;
+  		std::cout << "> ";
+  		getline (std::cin, input);
+
+  		if (input == "exit")
+  		{
+  			return 0;
+  		}
+
+  		std::cout << plang::Parse(input) << "\n";
+	}
 }
