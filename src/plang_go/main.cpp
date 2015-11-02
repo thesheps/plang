@@ -1,10 +1,14 @@
-#include <plang/plang.h>
+#include <plang/parser.h>
 
 #include <iostream>
+
+using namespace plang;
 
 ////////////////////////////////////////////////////////////////////////////////
 int main(int argc, char** argv)
 {
+	Parser parser = Parser();
+
 	while(1 == 1)
 	{
 		string input;
@@ -16,6 +20,6 @@ int main(int argc, char** argv)
   			return 0;
   		}
 
-  		std::cout << plang::Parse(input) << "\n";
+  		std::cout << parser.parse(input) << "\n";
 	}
 }

@@ -2,4 +2,4 @@ mkdir build
 cd build
 cmake .. -G "MinGW Makefiles"
 mingw32-make.exe
-ctest --output-on-failure
+ctest
