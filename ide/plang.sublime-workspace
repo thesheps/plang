@@ -1,0 +1,643 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/source/plang/src/plang/plang.cpp",
+			"settings":
+			{
+				"buffer_size": 239,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/source/plang/tests/plang/main.cpp",
+			"settings":
+			{
+				"buffer_size": 313,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/source/plang/src/plang/plang.h",
+			"settings":
+			{
+				"buffer_size": 645,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/source/plang/src/plang_go/main.cpp",
+			"settings":
+			{
+				"buffer_size": 354,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/source/plang/src/plang_unit/main.cpp",
+			"settings":
+			{
+				"buffer_size": 216,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Auto indent"
+			],
+			[
+				"xml",
+				"Indent XML"
+			],
+			[
+				"json",
+				"Indent JSON"
+			],
+			[
+				"au",
+				"Auto indent"
+			],
+			[
+				"inde",
+				"Indent XML"
+			],
+			[
+				"indent xml",
+				"Indent XML"
+			],
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"pre",
+				"HTMLPrettify"
+			],
+			[
+				"a",
+				"Auto indent"
+			],
+			[
+				"aut",
+				"Auto indent"
+			],
+			[
+				"auto",
+				"Auto indent"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"batc",
+				"Set Syntax: Batch File"
+			],
+			[
+				"syntax: c#",
+				"Set Syntax: C#"
+			],
+			[
+				"pret",
+				"HTMLPrettify"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 120.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/source/plang",
+		"/C/source/plang/src",
+		"/C/source/plang/src/plang",
+		"/C/source/plang/src/plang_go",
+		"/C/source/plang/src/plang_unit",
+		"/C/source/plang/tests",
+		"/C/source/plang/tests/plang"
+	],
+	"file_history":
+	[
+		"/C/source/plang/CMakeLists.txt",
+		"/C/source/plang/build.bat",
+		"/C/source/plang/lib/gtest/CMakeLists.txt",
+		"/C/source/plang-blog/_posts/2015-10-30-hello.md",
+		"/C/source/plang-blog/index.html",
+		"/C/source/plang-blog/_layouts/blank.html",
+		"/C/source/plang-blog/_config.yml",
+		"/C/source/plang-blog/main.sass",
+		"/C/source/plang-blog/_layouts/default.html",
+		"/C/source/plang/lib/CMakeLists.txt",
+		"/C/source/plang/.travis.yml",
+		"/C/source/plang/src/plang_unit/main.cpp",
+		"/C/source/plang/src/plang/plang.h",
+		"/C/source/plang/src/plang/plang.cpp",
+		"/C/source/lemonade/src/Lemonade.Web.Host/Web.config",
+		"//gbbl1itvmws17/D/LIVE/PaymentService/3.0.84.0/Web.config",
+		"//GBBL1ITVMWS17/d$/LIVE/PaymentService/3.0.83.0_2/Web.config",
+		"//GBBL1ITVMWS18/d$/LIVE/PaymentService/3.0.83.0_2/Web.config",
+		"/C/source/plang/src/plang/CMakeLists.txt",
+		"/C/Users/shepc/Desktop/Future reality tree.jthinker",
+		"/C/source/plang/src/CMakeLists.txt",
+		"/C/source/plang/src/plang_go/CMakeLists.txt",
+		"/C/source/plang/src/plang_unit/CMakeLists.txt",
+		"/C/source/ao.clients.gateway/default.ps1",
+		"/C/source/BitBucket/drl.website/default.ps1",
+		"/C/source/drl.paymentservice/src/PaymentService/PaymentService.svc.cs",
+		"/C/source/drl.paymentservice/src/PaymentService/Web.config",
+		"/C/source/drl.paymentservice/src/PaymentService.Library/Cybersource/Repositories/FraudRepository.cs",
+		"/C/source/product-db-admin/src/AdminGui/ProductDB.csproj",
+		"/C/source/drl.customerdeliveryservice/default.ps1",
+		"/C/source/drl.paymentservice/src/PaymentService/Web.LIVE.config",
+		"/C/source/drl.order.importer/src/Drl.Core.ThirdPartyOrderImporterService/App.config",
+		"/C/source/drl.order.importer/src/Drl.Core.ThirdPartyOrderImporterService/Clients/Kls/Cancellations.cs",
+		"/C/source/drl.order.importer/Deploy/Environment/drllive2.ps1",
+		"/C/Sonarqube/sonar-runner-2.3/conf/sonar-runner.properties",
+		"/C/source/BitBucket/drl.website/src/Website/Properties/AssemblyInfo.cs",
+		"/C/sonar_output.txt",
+		"/C/source/BitBucket/drl.website/sonar-project.properties",
+		"/C/source/ao.clients.gateway/sonar-project.properties",
+		"/C/source/core/Database/Drl.Core.Database/Scripts/Netherlands Client Setup/0001 LB CS tbl_Client.sql",
+		"/C/source/core/src/Drl.Columbus.Presentation/Drl.Columbus.Presentation.csproj",
+		"/C/source/BitBucket/drl.website/tools/pSake/psake.ps1",
+		"/C/source/core/Database/Drl.Core.Database/Scripts/Netherlands Client Setup/0002 LB CS tbl_ClientStandardDeliveryCharges.sql",
+		"/C/source/core/Database/Drl.Core.Database/App.config",
+		"/C/source/BitBucket/drl.website/psake.cmd",
+		"/C/source/BitBucket/drl.website/tools/pSake/examples/default.ps1",
+		"/C/source/core/Database/Drl.Core.Database/Scripts/Netherlands Bulk Client Setup/0001 CS tbl_Client.sql",
+		"//Gbbl1itvmba-0/x$/BuildAgent/work/5b621ecfaf0c875c/.sonar/AO.Clients.Gateway_AO.Clients.Gateway/resharper-sonarqube.DotSettings",
+		"//Gbbl1itvmba-0/x$/BuildAgent/work/5b621ecfaf0c875c/.sonar/AO.Clients.Gateway_AO.Clients.Gateway.Core/resharper-sonarqube.DotSettings",
+		"/C/source/drl.communicationservice/src/Drl.Communication/Emails/Templates/email/PASS/Amendment.vm",
+		"/C/source/lemonade/src/Lemonade/Lemonade.csproj",
+		"/C/Users/shepc/Desktop/Amendment.html",
+		"/C/Users/shepc/Desktop/Wijziging aankooporder  Bevestigen a.u.b..htm",
+		"/C/Users/shepc/Desktop/Wijziging aankooporder  Bevestigen a.u.b..msg",
+		"/C/source/core/src/Drl.Columbus.Presentation/Web.DRLLive2.config",
+		"//scwdrl02/QA2/Repository/ThirdParty/KlsOrders/Processed/b38f6ac3-3636-4b14-ac75-f1e263fb30e3_KLSDailyOrder - LC1.xls",
+		"//scwdrl02/QA2/Repository/ThirdParty/KlsOrders/Processed/2a53f68d-a1e7-4b93-96bd-fd4cb7bec7e9_KLS_Cancellation_02.xml",
+		"//scwdrl02/QA2/Repository/ThirdParty/KlsOrders/2a53f68d-a1e7-4b93-96bd-fd4cb7bec7e9_KLS_Cancellation_02.xml",
+		"/C/source/drl.communicationservice/src/Drl.Communication/Emails/Templates/email/ADL/AccessSurveyFailedCallback.vm",
+		"/C/source/core/Database/Drl.Core.Database/Scripts/0486 CS LB Update Disposition Translations.sql",
+		"/C/source/core/Database/Drl.Core.Database/Scripts/0488 CS LB Update Disposition Translations.sql",
+		"//scwdrl02/QA2/Repository/ThirdParty/KlsOrders/Processed/78986ee3-3bde-49dc-89aa-bdfdbffb0d84_KLSDailyOrder - LC1.xls",
+		"//gbbl1itvmca17/d$/Logs/Delivery Capping Service/logfile.log",
+		"/C/source/drl.silverliningfake/application/fake-appliance.js",
+		"/C/source/drl.silverliningfake/application/silverlining.js",
+		"/C/source/core/src/Drl.Columbus.Presentation/Web.config",
+		"//scwdrl02/QA2/Drl.Silverlining/1.48/server.js.log",
+		"/C/source/drl.silverliningfake/server.js",
+		"/C/source/drl.silverliningfake/index.html",
+		"/C/source/drl.silverliningfake/package.json",
+		"/C/Program Files (x86)/Microsoft/Remote Desktop Connection Manager/Resources/BETA.rdg",
+		"/C/source/chess/index.html",
+		"/C/source/thesheps.github.io/_posts/2015-10-04-git-chess-for-the-win.markdown",
+		"/C/source/ao.clients.gateway/psake.cmd",
+		"/C/source/thesheps.github.io/_posts/2015-09-27-consumerism-just-hook-it-to-my-veins.markdown",
+		"/C/source/pairvs/src/PairsVS.CrossCutting/DomainEvents.cs",
+		"/C/source/lemonade/src/Lemonade.Sql/Migrations/CreateFeatureTable.cs",
+		"/C/source/lemonade/src/Lemonade.Sql/LemonadeConnection.cs",
+		"/C/source/lemonade/tests/Lemonade.Sql.Tests/App.config",
+		"/C/source/lemonade/tests/Lemonade.Web.Tests/app.config",
+		"/C/source/ao.deliverycappingservice/src/AO.DeliveryCappingService.Host/AO.DeliveryCappingService.Host.exe.LIVE.config",
+		"/C/source/lemonade/src/Lemonade/App.config.install.xdt",
+		"//Gbbl1itvmca13/d/BETA/AO.Clients.Gateway.ProductsRouter/1.0.153.0/AO.Clients.Gateway.ProductsRouter.exe.config",
+		"/C/Users/shepc/Desktop/Bootstrapper.cs",
+		"/C/source/drl.core.acceptancetests/.nuget/NuGet.Config",
+		"/C/source/ao.v12/src/Ao.V12/Ao.V12.nuspec",
+		"/C/source/lemonade/src/Lemonade.Sql.nuspec",
+		"/C/source/lemonade/src/Lemonade.Web.nuspec",
+		"/C/source/lemonade/src/Lemonade.nuspec",
+		"/C/source/hooks-test/.hg/hgrc",
+		"/C/source/thesheps.github.io/_posts/2015-09-11-happy-birthday-to-me.markdown",
+		"/C/source/thesheps.github.io/index.html",
+		"/C/Users/shepc/Desktop/thesheps.github.io/index.html",
+		"/C/source/thesheps.github.io/_config.yml",
+		"/C/source/thesheps.github.io/_layouts/default.html",
+		"/C/source/thesheps.github.io/_layouts/post.html",
+		"/C/Users/shepc/Downloads/white-paper-1.0.2/white-paper-1.0.2/_posts/2014-02-13-migrating-to-octopress.markdown",
+		"/C/source/thesheps.github.io/about.md",
+		"/C/source/thesheps.github.io/_includes/header.html",
+		"/C/source/thesheps.github.io/_includes/head.html",
+		"/C/Users/shepc/Downloads/white-paper-1.0.2/white-paper-1.0.2/_config.yml",
+		"/C/source/thesheps.github.io/CNAME",
+		"/C/source/thesheps.github.io/_posts/2015-09-11-happy-birthday-to-me.html",
+		"/C/Users/shepc/Downloads/white-paper-1.0.2/white-paper-1.0.2/index.html",
+		"/C/Users/shepc/Downloads/white-paper-1.0.2/white-paper-1.0.2/README.md",
+		"/C/source/thesheps.github.io/white-paper-gh-pages/index.html",
+		"/C/source/thesheps.github.io/_index.html",
+		"/C/source/thesheps.github.io/_posts/2015-09-11-happy-birthday-to-me.md",
+		"/C/source/thesheps.github.io/_posts/2014-01-01-happy-new-year-2014.html",
+		"//gbbl1itvmca17/D/Logs/Delivery Capping Service/logfile.log",
+		"//Gbbl1itvmca17/D/LIVE/Drl.Ebay.OrderRetriever/1.0.1053.0/DRL.Ebay.OrderProcessor.Host.exe.config",
+		"/C/source/lemonade/tests/Lemonade.Web.Tests/GivenFeaturesModule.cs",
+		"/C/source/product-db-admin/default.ps1",
+		"/C/Users/shepc/Desktop/StartUp.cs",
+		"/C/Users/shepc/Desktop/Program.cs",
+		"/C/source/core/src/Drl.Columbus.Presentation/Installers/DataInstaller.cs",
+		"/C/source/core/src/Drl.Columbus.Presentation/Installers/ApiControllersInstaller.cs",
+		"/C/source/core/src/Drl.Columbus.Presentation/Installers/ServicesInstaller.cs",
+		"/C/source/drl.ebay/DRL.Ebay.WebHost/DRL.Ebay.WebHost.csproj",
+		"/C/source/core/src/Drl.Columbus.Presentation/Installers/ControllersInstaller.cs",
+		"/C/source/drl.ebay/DRL.Ebay.OrderProcessor/packages.config",
+		"/C/source/drl.ebay/DRL.Ebay.ProductLister/packages.config",
+		"/C/source/drl.ebay/DRL.Ebay.WebHost/packages.config",
+		"/C/source/drl.ebay/Tests/DRL.Ebay.IntegrationTests/packages.config",
+		"/C/source/drl.ebay/Tests/DRL.Ebay.ProductLister.Tests/packages.config",
+		"/C/source/drl.ebay/Tests/DRL.Ebay.Test.Framework/packages.config",
+		"/C/source/drl.ebay/Tests/DRL.Ebay.OrderProcessor.Tests/packages.config",
+		"/C/Users/shepc/Desktop/Client Setup/0001 YS AIR Client.sql"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\source\\drl.silverliningfake",
+			"C:\\source\\core\\,*.*",
+			"C:\\source\\core\\*.*",
+			"C:\\source\\core",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"main.css",
+			"     ",
+			"ConfirmationEmailRecipients",
+			"cancel",
+			"cancellation",
+			"@",
+			"     ",
+			"17/10/2015",
+			"client",
+			"germ",
+			"vbv",
+			"qa2/PaymentService",
+			"http://qa2/PaymentService",
+			"moto",
+			"><",
+			"<",
+			"\"",
+			"new relic",
+			"ID",
+			"at",
+			"of the same dependent",
+			"nunit",
+			"; ",
+			"   ",
+			"product",
+			"\\r\\n",
+			"     ",
+			"Cybers",
+			"     ",
+			"drl",
+			"customerdeliveryservice",
+			"46466",
+			"/>\n",
+			"     ",
+			"type",
+			":",
+			"Drl.Columbus.Presentation",
+			".Presentation",
+			"1.0.7.0",
+			"Drl.Columbus.Presentation",
+			"EmbeddedResource",
+			"0444",
+			"0001",
+			"Ao.Core.Search.sln",
+			"983",
+			"derianplay",
+			"fieldset",
+			">",
+			"auth",
+			"listener",
+			"  ",
+			"GBBL1ITSEDB07",
+			"customerdeliveryservice",
+			"     ",
+			"     at",
+			"     ",
+			"sql",
+			"inventory",
+			"Name6_1_",
+			",",
+			"panasonic",
+			"@",
+			"&lt;",
+			"&gt;",
+			"&gt;&lt;"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"<",
+			">",
+			"><"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/source/plang/src/plang/plang.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 239,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								99,
+								39
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "c++",
+							"buffer_scroll_name": "35416fa9",
+							"spell_check": false,
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/source/plang/tests/plang/main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 313,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								247,
+								275
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "c++",
+							"buffer_scroll_name": "ab68adbc",
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/source/plang/src/plang/plang.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								622,
+								622
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "c++",
+							"buffer_scroll_name": "fdb39b91",
+							"spell_check": false,
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/source/plang/src/plang_go/main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 354,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								347,
+								347
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "c++",
+							"buffer_scroll_name": "88c17634",
+							"spell_check": false,
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/source/plang/src/plang_unit/main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 216,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								162,
+								162
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "c++",
+							"buffer_scroll_name": "426fd141",
+							"spell_check": false,
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "plang.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 196.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
