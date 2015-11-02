@@ -22,11 +22,6 @@ file(GLOB PLANG_GO_SRC ${PLANG_SRC_ROOT}/plang_go/*.cpp)
 add_executable(pgo ${PLANG_GO_SRC})
 target_link_libraries(pgo plang)
 
-# plang_unit
-file(GLOB PLANG_UNIT_SRC ${PLANG_SRC_ROOT}/plang_unit/*.cpp)
-add_executable(punit ${PLANG_UNIT_SRC})
-target_link_libraries(punit plang)
-
 
 # TESTS
 # plang tests
