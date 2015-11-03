@@ -1,24 +1,33 @@
-#include <iostream>
-
 #include <plang/plang.h>
-#include <plang/parser.h>
+#include <plang/TokenStream.h>
+
+#include <iostream>
 
 using namespace plang;
 
 int main(int argc, char** argv)
 {
-  Parser parser = Parser();
-
+	// this is rather shitty code, just an adhoc test for the token stream
+	const int kBufSize = 1024;
+	char buf[kBufSize];
 	while (true) {
-  		std::string input;
-  		std::cout << "> ";
-  		getline(std::cin, input);
-
-      if (input == "exit")
-      {
-        return 0;
-      }
-
-      std::cout << parser.parse(input) << "\n";
-  }
+		std::cout << ">";
+		std::cin.getline(buf, kBufSize);
+		plang::TokenStream tokstr(buf);
+		const char* tok;
+		while ((tok = tokstr.getNext()) != 0) {
+			if (tok[0] == ':') {
+				if ((tok = tokstr.getNext()) != 0) {
+					if (tok[0] == 'q') {
+						goto plang_go_end;
+					}
+				}	
+			} else {
+				std::cout << tok << "_";
+			}
+		}
+		std::cout << std::endl;
+	}
+plang_go_end: // I really just wanted to use a goto
+	return 0;
 }
