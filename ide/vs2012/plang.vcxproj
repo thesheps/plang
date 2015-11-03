@@ -33,13 +33,13 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="props\plang_lib.props" />
-    <Import Project="props\plang_debug.props" />
+    <Import Project="plang_debug.props" />
+    <Import Project="plang_lib.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="props\plang_lib.props" />
-    <Import Project="props\plang_release.props" />
+    <Import Project="plang_release.props" />
+    <Import Project="plang_lib.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
@@ -68,10 +68,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\plang\def.h" />
+    <ClInclude Include="..\..\src\plang\expression.h" />
+    <ClInclude Include="..\..\src\plang\parser.h" />
     <ClInclude Include="..\..\src\plang\plang.h" />
+    <ClInclude Include="..\..\src\plang\token.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\plang\plang.cpp" />
+    <ClCompile Include="..\..\src\plang\expression.cpp" />
+    <ClCompile Include="..\..\src\plang\parser.cpp" />
+    <ClCompile Include="..\..\src\plang\token.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
