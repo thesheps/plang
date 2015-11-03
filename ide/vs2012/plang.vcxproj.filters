@@ -2,8 +2,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\src\plang\plang.h" />
+    <ClInclude Include="..\..\src\plang\def.h" />
+    <ClInclude Include="..\..\src\plang\expression.h" />
+    <ClInclude Include="..\..\src\plang\parser.h" />
+    <ClInclude Include="..\..\src\plang\token.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\plang\plang.cpp" />
+    <ClCompile Include="..\..\src\plang\expression.cpp" />
+    <ClCompile Include="..\..\src\plang\parser.cpp" />
+    <ClCompile Include="..\..\src\plang\token.cpp" />
   </ItemGroup>
 </Project>
