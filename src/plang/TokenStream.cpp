@@ -59,7 +59,7 @@ Token TokenStream::getNext()
 
 	// detect end of stream
 	if (!m_buf) {
-		return 0; 
+		return Token::Eos; 
 	}
 
 	// advance to next non-whitespace char (start of the next token)
@@ -93,5 +93,5 @@ Token TokenStream::getNext()
 		m_optoken = 0;
 	}
 
-	return ret;
+	return Token(ret);
 }

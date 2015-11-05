@@ -1,15 +1,21 @@
-#ifndef token_h
-#define token_h
+#ifndef plang_token_h
+#define plang_token_h
 
 namespace plang {
 	class Token {
 		public:
-			Token();
-			Token(const char* c);
-			const char* token;
-			bool operator== (Token t, int i);
-			bool operator!= (Token t, int i);
+			static Token Eos;
+
+			Token(): m_tok(0) {}
+			Token(const char* _tok): m_tok(_tok) {};
+
+			bool operator==(const Token& _rhs) const;
+			bool operator!=(const Token& _rhs) const { return !(*this == _rhs); }
+			operator const char*() const             { return m_tok; }
+		private:
+			const char* m_tok;
 	};
+	
 }
 
-#endif // token_h
+#endif // plang_token_h
