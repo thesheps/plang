@@ -1,7 +1,7 @@
 #ifndef plang_TokenStream_h
 #define plang_TokenStream_h
 
-#include "token.h"
+#include <plang/token.h>
 
 namespace plang {
 
@@ -16,7 +16,7 @@ public:
 	/// \note The buffer is modified by calls to \c getNext().
 	TokenStream(char* _buf_);
 
-	/// \return The next token in the stream (a null-terminated string). 
+	/// \return The next token in the stream.
 	Token getNext();
 
 private:	

@@ -1,22 +1,12 @@
-#include "token.h"
+#include <plang/token.h>
+
+#include <cstring>
 
 using namespace plang;
 
-Token::Token()
+bool Token::operator==(const Token& _rhs) const
 {
+	return strcmp(m_tok, _rhs.m_tok) == 0;
 }
 
-Token::Token(const char* t)
-{
-	token = t;
-}
-
-bool operator== (Token t, int i)
-{
-	return *t.token == i;
-}
-
-bool operator!= (Token t, int i)
-{
-	return *t.token != i;
-}
+Token Token::Eos = Token("\0");

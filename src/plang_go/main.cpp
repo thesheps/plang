@@ -14,17 +14,17 @@ int main(int argc, char** argv)
 	while (true) {
 		std::cout << ">";
 		std::cin.getline(buf, kBufSize);
-		plang::TokenStream tokstr(buf);
+		TokenStream tokstr(buf);
 		Token tok;
-		while ((tok = tokstr.getNext()) != 0) {
-			if (tok.token[0] == ':') {
-				if ((tok = tokstr.getNext()) != 0) {
-					if (tok.token[0] == 'q') {
+		while ((tok = tokstr.getNext()) != Token::Eos) {
+			if (tok == Token(":")) {
+				if ((tok = tokstr.getNext()) != Token::Eos) {
+					if (tok == Token("q")) {
 						goto plang_go_end;
 					}
 				}	
 			} else {
-				std::cout << tok.token << "_";
+				std::cout << tok << "_";
 			}
 		}
 		std::cout << std::endl;
