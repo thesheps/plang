@@ -1,6 +1,8 @@
 #ifndef plang_TokenStream_h
 #define plang_TokenStream_h
 
+#include "token.h"
+
 namespace plang {
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -15,7 +17,7 @@ public:
 	TokenStream(char* _buf_);
 
 	/// \return The next token in the stream (a null-terminated string). 
-	const char* getNext();
+	Token getNext();
 
 private:	
 	char* m_buf;
