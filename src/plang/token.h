@@ -4,8 +4,11 @@
 namespace plang {
 	class Token {
 		public:
-			Token(char c);
-			char token;
+			Token();
+			Token(const char* c);
+			const char* token;
+			bool operator== (Token t, int i);
+			bool operator!= (Token t, int i);
 	};
 }
 

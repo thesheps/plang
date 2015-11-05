@@ -1,4 +1,5 @@
 #include <plang/plang.h>
+#include <plang/Token.h>
 #include <plang/TokenStream.h>
 
 #include <iostream>
@@ -14,16 +15,16 @@ int main(int argc, char** argv)
 		std::cout << ">";
 		std::cin.getline(buf, kBufSize);
 		plang::TokenStream tokstr(buf);
-		const char* tok;
+		Token tok;
 		while ((tok = tokstr.getNext()) != 0) {
-			if (tok[0] == ':') {
+			if (tok.token[0] == ':') {
 				if ((tok = tokstr.getNext()) != 0) {
-					if (tok[0] == 'q') {
+					if (tok.token[0] == 'q') {
 						goto plang_go_end;
 					}
 				}	
 			} else {
-				std::cout << tok << "_";
+				std::cout << tok.token << "_";
 			}
 		}
 		std::cout << std::endl;
