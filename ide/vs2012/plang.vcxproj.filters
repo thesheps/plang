@@ -3,14 +3,10 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\plang\plang.h" />
     <ClInclude Include="..\..\src\plang\def.h" />
-    <ClInclude Include="..\..\src\plang\expression.h" />
-    <ClInclude Include="..\..\src\plang\parser.h" />
     <ClInclude Include="..\..\src\plang\token.h" />
     <ClInclude Include="..\..\src\plang\TokenStream.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\plang\expression.cpp" />
-    <ClCompile Include="..\..\src\plang\parser.cpp" />
     <ClCompile Include="..\..\src\plang\token.cpp" />
     <ClCompile Include="..\..\src\plang\TokenStream.cpp" />
   </ItemGroup>

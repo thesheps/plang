@@ -40,35 +40,35 @@ TokenStream::TokenStream(char* _buf_)
 	: m_buf(_buf_)
 	, m_optoken(0)
 {
-//	advance to first token
+	//	advance to first token
 	while (*m_buf && isWhiteSpace(*m_buf)) {
 		++m_buf;
 	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-const char* TokenStream::getNext()
+Token TokenStream::getNext()
 {
-// if m_optoken was set, interrupt the stream and return an op token string (we 
-// can't guarantee to insert a null char after an op token)
+	// if m_optoken was set, interrupt the stream and return an op token string (we 
+	// can't guarantee to insert a null char after an op token)
 	if (m_optoken) {
 		const char* ret = m_optoken;
 		m_optoken = 0;
 		return ret;
 	}
 
-// detect end of stream
+	// detect end of stream
 	if (!m_buf) {
-		return 0; 
+		return Token::Eos; 
 	}
 
-// advance to next non-whitespace char (start of the next token)
+	// advance to next non-whitespace char (start of the next token)
 	while (*m_buf && isWhiteSpace(*m_buf)) {
 		++m_buf;
 	}
 	const char* ret = m_buf;
 
-// advance to next whitespace char, op token or eos
+	// advance to next whitespace char, op token or eos
 	while (*m_buf && !isWhiteSpace(*m_buf)) {
 		m_optoken = getOpTokenString(*m_buf);
 		if (m_optoken) {
@@ -85,13 +85,13 @@ const char* TokenStream::getNext()
 		m_buf = 0;
 	}
 
-// special case; ret can be null if we have an op token first in the stream 
-// (or if the stream contains consecutive op tokens), in which case we can
-// consume m_optoken here
+	// special case; ret can be null if we have an op token first in the stream 
+	// (or if the stream contains consecutive op tokens), in which case we can
+	// consume m_optoken here
 	if (*ret == 0) {
 		ret = m_optoken;
 		m_optoken = 0;
 	}
 
-	return ret;
+	return Token(ret);
 }
