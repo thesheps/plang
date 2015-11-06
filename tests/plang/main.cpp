@@ -15,6 +15,6 @@ TEST_CASE("When I parse plaintext language, then results are tokenised as separa
 	Token t = tokstr.getNext();
 	REQUIRE(t == Token("hello"));
 
-	Token t = tokstr.getNext();
+	t = tokstr.getNext();
 	REQUIRE(t == Token("world"));
 }
