@@ -1,4 +1,4 @@
-#include <plang/token.h>
+#include <plang/Token.h>
 
 #include <cstring>
 
