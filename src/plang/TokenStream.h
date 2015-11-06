@@ -1,7 +1,8 @@
 #ifndef plang_TokenStream_h
 #define plang_TokenStream_h
 
-#include <plang/token.h>
+#include <plang/Token.h>
+#include <plang/TokenStream.h>
 
 namespace plang {
 
