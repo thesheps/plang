@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "plang", "plang.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "plang_go", "plang_go.vcxproj", "{8FDFEC0D-9D5E-4E54-9183-04A5E17D165E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tests", "tests.vcxproj", "{4B41B740-53A0-4633-AF7C-05999B88E302}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		debug|x64 = debug|x64
@@ -19,8 +21,10 @@ Global
 		{8FDFEC0D-9D5E-4E54-9183-04A5E17D165E}.debug|x64.Build.0 = debug|x64
 		{8FDFEC0D-9D5E-4E54-9183-04A5E17D165E}.release|x64.ActiveCfg = release|x64
 		{8FDFEC0D-9D5E-4E54-9183-04A5E17D165E}.release|x64.Build.0 = release|x64
-		{7604CC81-12FA-4AB9-92BB-121AFB0CEDE1}.debug|x64.ActiveCfg = debug|x64
-		{7604CC81-12FA-4AB9-92BB-121AFB0CEDE1}.debug|x64.Build.0 = debug|x64
+		{4B41B740-53A0-4633-AF7C-05999B88E302}.debug|x64.ActiveCfg = debug|x64
+		{4B41B740-53A0-4633-AF7C-05999B88E302}.debug|x64.Build.0 = debug|x64
+		{4B41B740-53A0-4633-AF7C-05999B88E302}.release|x64.ActiveCfg = release|x64
+		{4B41B740-53A0-4633-AF7C-05999B88E302}.release|x64.Build.0 = release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
