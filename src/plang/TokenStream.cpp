@@ -93,5 +93,11 @@ Token TokenStream::getNext()
 		m_optoken = 0;
 	}
 
+	// another special case, if there was whitespace at the end of the stream then
+	// ret can be null
+	if (ret == 0) {
+		return Token::Eos;
+	}
+
 	return Token(ret);
 }
