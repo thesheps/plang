@@ -2,7 +2,6 @@
 #define plang_TokenStream_h
 
 #include <plang/Token.h>
-#include <plang/TokenStream.h>
 
 namespace plang {
 
