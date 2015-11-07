@@ -1,5 +1,7 @@
 #include <plang/TokenStream.h>
 
+#include <plang/def.h>
+
 using namespace plang;
 
 static const char* kOpTokenStrings[] =
@@ -40,6 +42,7 @@ TokenStream::TokenStream(char* _buf_)
 	: m_buf(_buf_)
 	, m_optoken(0)
 {
+	PLANG_ASSERT(_buf_);
 	//	advance to first token
 	while (*m_buf && isWhiteSpace(*m_buf)) {
 		++m_buf;
