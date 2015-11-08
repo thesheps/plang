@@ -8,39 +8,117 @@
 
 using namespace plang;
 
-TEST_CASE("When I parse plaintext language, then results are tokenised as separate words.", "[parsing]") {
-	char buf[] = "hello world";
-	TokenStream tokstr(buf);
+SCENARIO("String expressions are tokenised", "[parsing][tokenisation]") {
+	GIVEN("Plaintext sentence") {
+		char buf[] = "hello world";
+		TokenStream tokstr(buf);
+	
+		WHEN("The sentence is parsed") {
+			Token t1 = tokstr.getNext();
+			Token t2 = tokstr.getNext();
 
-	Token t = tokstr.getNext();
-	REQUIRE(t == Token("hello"));
+			THEN("The results are tokenised as separate words") {
+				REQUIRE(t1 == Token("hello"));
+				REQUIRE(t2 == Token("world"));
+			}
+		}
+	}
 
-	t = tokstr.getNext();
-	REQUIRE(t == Token("world"));
-}
+	GIVEN("Plaintext sentence with trailing and leading white space") {
+		char buf[] = "   hello world    ";
+		TokenStream tokstr(buf);
+	
+		WHEN("The sentence is parsed") {
+			Token t1 = tokstr.getNext();
+			Token t2 = tokstr.getNext();
 
-TEST_CASE("Parsing correctly eliminates leading/trailing whitespace", "[parsing]") {
-	char buf[] = "  tok0 tok1   ";
-	TokenStream tokstr(buf);
-	Token t;
+			THEN("The results are tokenised as separate words") {
+				REQUIRE(t1 == Token("hello"));
+				REQUIRE(t2 == Token("world"));
+			}
+		}
+	}
 
-	t = tokstr.getNext();
-	REQUIRE(t == Token("tok0"));
-	t = tokstr.getNext();
-	REQUIRE(t == Token("tok1"));
-	t = tokstr.getNext();
-	REQUIRE(t == Token::Eos);
-}
+	GIVEN("Mathematical expression with spaces") {
+		char buf[] = "1 + 2";
+		TokenStream tokstr(buf);
+	
+		WHEN("The sentence is parsed") {
+			Token t1 = tokstr.getNext();
+			Token t2 = tokstr.getNext();
+			Token t3 = tokstr.getNext();
 
-TEST_CASE("Parsing correctly handles consecutive optokens", "[parsing]") {
-	char buf[] = "+-";
-	TokenStream tokstr(buf);
-	Token t;
+			THEN("The spaces are ignored") {
+				REQUIRE(t1 == Token("1"));
+				REQUIRE(t2 == Token("+"));
+				REQUIRE(t3 == Token("2"));
+			}
+		}
+	}
 
-	t = tokstr.getNext();
-	REQUIRE(t == Token("+"));
-	t = tokstr.getNext();
-	REQUIRE(t == Token("-"));
-	t = tokstr.getNext();
-	REQUIRE(t == Token::Eos);
+	GIVEN("A subtractive expression") {
+		char buf[] = "100-99";
+		TokenStream tokstr(buf);
+	
+		WHEN("The sentence is parsed") {
+			Token t1 = tokstr.getNext();
+			Token t2 = tokstr.getNext();
+			Token t3 = tokstr.getNext();
+
+			THEN("The operators and operands are tokenised separately") {
+				REQUIRE(t1 == Token("100"));
+				REQUIRE(t2 == Token("-"));
+				REQUIRE(t3 == Token("99"));
+			}
+		}
+	}
+
+	GIVEN("A multiplicative expression") {
+		char buf[] = "100*99";
+		TokenStream tokstr(buf);
+	
+		WHEN("The sentence is parsed") {
+			Token t1 = tokstr.getNext();
+			Token t2 = tokstr.getNext();
+			Token t3 = tokstr.getNext();
+
+			THEN("The operators and operands are tokenised separately") {
+				REQUIRE(t1 == Token("100"));
+				REQUIRE(t2 == Token("*"));
+				REQUIRE(t3 == Token("99"));
+			}
+		}
+	}
+
+	GIVEN("A divisory expression") {
+		char buf[] = "100/99";
+		TokenStream tokstr(buf);
+	
+		WHEN("The sentence is parsed") {
+			Token t1 = tokstr.getNext();
+			Token t2 = tokstr.getNext();
+			Token t3 = tokstr.getNext();
+
+			THEN("The operators and operands are tokenised separately") {
+				REQUIRE(t1 == Token("100"));
+				REQUIRE(t2 == Token("/"));
+				REQUIRE(t3 == Token("99"));
+			}
+		}
+	}
+
+	GIVEN("Multiple consecutive optokens") {
+		char buf[] = "+-";
+		TokenStream tokstr(buf);
+	
+		WHEN("The expression is parsed") {
+			Token t1 = tokstr.getNext();
+			Token t2 = tokstr.getNext();
+
+			THEN("The operands are tokenised separately") {
+				REQUIRE(t1 == Token("+"));
+				REQUIRE(t2 == Token("-"));
+			}
+		}
+	}
 }
