@@ -16,3 +16,4 @@ ide/vs*/*.user
 !ide/vs*/*.filters
 !ide/vs*/*.props
 ide/plang.sublime-project
+ide/plang.sublime-workspace
