@@ -1,6 +1,7 @@
 #include <plang/plang.h>
 #include <plang/Token.h>
 #include <plang/TokenStream.h>
+#include <plang/Expression.h>
 
 #include <iostream>
 
@@ -24,6 +25,7 @@ int main(int argc, char** argv)
 					}
 				}	
 			} else {
+				ExpressionNode expNode(tok);
 				std::cout << tok << "_";
 			}
 		}
