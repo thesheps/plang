@@ -6,26 +6,17 @@ using namespace plang;
 
 static const char* kOpTokenStrings[] =
 {
-//	arithmetic
+	//	arithmetic
 	"=", "+", "-", "/", "*", 
-//	control
+	//	control
 	":", "(", ")", "{", "}",
 };
 
-////////////////////////////////////////////////////////////////////////////////
 static bool isWhiteSpace(char _c)
 {
-	//static const char* kWhitespace = " \t\n";
-	//for (const char* it = kWhitespace; *it != 0; ++it) {
-	//	if (_c == *it) {
-	//		return true;
-	//	}
-	//}
-	//return false;
-	return _c <= ' '; // optim, just assume all ASCII control chars are whitespace
+	return _c <= ' ';
 }
 
-////////////////////////////////////////////////////////////////////////////////
 static const char* getOpTokenString(char _c)
 {
 	for (const char** it = kOpTokenStrings; *it != 0; ++it) {
@@ -36,8 +27,6 @@ static const char* getOpTokenString(char _c)
 	return 0;
 }
 
-
-////////////////////////////////////////////////////////////////////////////////
 TokenStream::TokenStream(char* _buf_)
 	: m_buf(_buf_)
 	, m_optoken(0)
@@ -49,7 +38,6 @@ TokenStream::TokenStream(char* _buf_)
 	}
 }
 
-////////////////////////////////////////////////////////////////////////////////
 Token TokenStream::getNext()
 {
 	// if m_optoken was set, interrupt the stream and return an op token string (we 

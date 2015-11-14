@@ -2,6 +2,7 @@
 lib/
 bin/
 build/
+ide/
 
 # Auto-generated docs (except configs)
 docs/*
