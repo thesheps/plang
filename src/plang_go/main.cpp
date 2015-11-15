@@ -1,7 +1,7 @@
 #include <plang/plang.h>
 #include <plang/Token.h>
 #include <plang/TokenStream.h>
-#include <plang/Expression.h>
+#include <plang/ExpressionNode.h>
 
 #include <iostream>
 

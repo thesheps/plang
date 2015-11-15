@@ -1,4 +1,4 @@
-#include <plang/Expression.h>
+#include <plang/ExpressionNode.h>
 
 #include <plang/def.h>
 #include <plang/Token.h>
@@ -7,25 +7,16 @@
 
 using namespace plang;
 
-/*******************************************************************************
-
-                               ExpressionNode
-
-*******************************************************************************/
-
-////////////////////////////////////////////////////////////////////////////////
 static bool IsAlpha(char _c)
 {
 	return (_c >= 'A' && _c <='Z') || (_c >= 'a' && _c <= 'z'); // 2 tests? ASCII was poorly designed :(
 }
 
-////////////////////////////////////////////////////////////////////////////////
 static bool IsNumeric(char _c)
 {
 	return _c >= '0' && _c <='9';
 }
 
-////////////////////////////////////////////////////////////////////////////////
 // \todo String literals would be a special case here (they're operands
 //    which start with a non-alphanumeric char '"').
 // \todo Break this up into smaller functions.
