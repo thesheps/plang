@@ -14,6 +14,13 @@ static const char* kOpTokenStrings[] =
 
 static bool isWhiteSpace(char _c)
 {
+	//static const char* kWhitespace = " \t\n";
+	//for (const char* it = kWhitespace; *it != 0; ++it) {
+	//	if (_c == *it) {
+	//		return true;
+	//	}
+	//}
+	//return false;
 	return _c <= ' ';
 }
 
