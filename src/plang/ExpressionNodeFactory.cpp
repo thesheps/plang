@@ -1,9 +1,10 @@
-#include <plang/ExpressionNode.h>
+#include <cstdlib>
 
 #include <plang/def.h>
 #include <plang/Token.h>
-
-#include <cstdlib>
+#include <plang/OperandExpressionNode.h>
+#include <plang/OperatorExpressionNode.h>
+#include <plang/ExpressionNodeFactory.h>
 
 using namespace plang;
 
@@ -21,7 +22,7 @@ static bool IsNumeric(char _c)
 //    which start with a non-alphanumeric char '"').
 // \todo Break this up into smaller functions.
 // \todo Error mechanism - exceptions? Global error code?
-ExpressionNode::ExpressionNode(const Token& _token)
+ExpressionNode ExpressionNodeFactory::create(const Token& _token)
 {
 	const char* t = _token;
 	
@@ -29,17 +30,16 @@ ExpressionNode::ExpressionNode(const Token& _token)
 	bool isNumeric = IsNumeric(*t);
 	if (isAlpha || isNumeric) { // token is a numeric literal or a symbol
 		if (isNumeric) {
-			m_type = kTypeOperand; // numeric literals are always operands
 			long i = atol(t);
-			m_operand = Operand((Operand::IntType)i);
-		} else {
+			return OperandExpressionNode((Operand::IntType)i);
+		}
+		else {
 			// symbols may be operands (variables) or operators (functions)
 		}
 	} else { // token is an operator
-		m_type = kTypeOperator;
 		switch (*t) {
-			case '+': m_operator = Operator(Operator::kTypeAdd); break;
-			case '-': m_operator = Operator(Operator::kTypeSubtract); break;
+			case '+': return OperatorExpressionNode(Operator::kTypeAdd); break;
+			case '-': return OperatorExpressionNode(Operator::kTypeSubtract); break;
 			default: PLANG_ASSERT(false); break; // unsupported operator
 		};
 	}
