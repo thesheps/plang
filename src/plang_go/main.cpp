@@ -2,6 +2,9 @@
 #include <plang/Token.h>
 #include <plang/TokenStream.h>
 #include <plang/ExpressionNode.h>
+#include <plang/OperandExpressionNode.h>
+#include <plang/OperatorExpressionNode.h>
+#include <plang/ExpressionNodeFactory.h>
 
 #include <iostream>
 
@@ -12,6 +15,7 @@ int main(int argc, char** argv)
 	// this is rather shitty code, just an adhoc test for the token stream
 	const int kBufSize = 1024;
 	char buf[kBufSize];
+	ExpressionNodeFactory factory;
 	while (true) {
 		std::cout << ">";
 		std::cin.getline(buf, kBufSize);
@@ -25,7 +29,7 @@ int main(int argc, char** argv)
 					}
 				}	
 			} else {
-				ExpressionNode expNode(tok);
+				ExpressionNode e = factory.create(tok);
 				std::cout << tok << "_";
 			}
 		}
