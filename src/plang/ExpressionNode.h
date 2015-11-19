@@ -12,12 +12,13 @@ namespace plang {
 		public:
 			enum Type
 			{
-				kTypeOperand = 0,
+				kTypeUnknown = 0,
+				kTypeOperand,
 				kTypeOperator
 			};
 
-			ExpressionNode() {}
-			Type type;
+			ExpressionNode(Type t) : type(t) {}
+			const Type type;
 	};
 }
 

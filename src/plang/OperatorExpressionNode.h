@@ -7,13 +7,12 @@
 
 namespace plang {
 	class OperatorExpressionNode : public ExpressionNode {
-	public:
-		OperatorExpressionNode(Operator::Type t) : m_t(t) {
-			type = kTypeOperator;
-		}
+		public:
+			OperatorExpressionNode() : ExpressionNode(kTypeUnknown) { };
+			OperatorExpressionNode(Operator::Type t) : ExpressionNode(kTypeOperator) { m_t = t; }
 
-	private:
-		Operator::Type m_t;
+		private:
+			Operator::Type m_t;
 	};
 }
 

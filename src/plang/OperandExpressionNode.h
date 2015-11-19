@@ -8,8 +8,9 @@
 namespace plang {
 	class OperandExpressionNode : public ExpressionNode {
 	public:
-		OperandExpressionNode(Operand::IntType i) : m_i(i) {
-			type = kTypeOperand;
+		OperandExpressionNode(Operand::IntType i) : ExpressionNode(kTypeOperand)
+		{
+			m_i = i;
 		}
 	private:
 		Operand::IntType m_i;
