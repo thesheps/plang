@@ -10,7 +10,7 @@
 
 using namespace plang;
 
-Expression Parser::parse(TokenStream tokenStream)
+Expression* Parser::parse(TokenStream tokenStream)
 {
 	ExpressionNodeFactory factory;
 	Token tok;
@@ -19,12 +19,13 @@ Expression Parser::parse(TokenStream tokenStream)
 		if (tok == Token(":")) {
 			if ((tok = tokenStream.getNext()) != Token::Eos) {
 				if (tok == Token("q")) {
-					return QuitExpression();
+					return new QuitExpression();
 				}
 			}
 		}
 		else {
 			ExpressionNode e = factory.create(tok);
+			return new Expression();
 		}
 	}
 }

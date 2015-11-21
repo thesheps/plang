@@ -5,5 +5,5 @@
 using namespace plang;
 
 void Expression::evaluate() {
-	std::cout << "Expression";
+	std::cout << "Evaluating Expression...";
 }

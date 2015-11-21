@@ -7,7 +7,7 @@ namespace plang {
 	class Expression
 	{
 		public:
-			void evaluate();
+			virtual void evaluate();
 	};
 }
 

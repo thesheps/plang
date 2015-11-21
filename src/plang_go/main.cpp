@@ -5,6 +5,7 @@
 #include <plang/Parser.h>
 #include <plang/Expression.h>
 #include <plang/QuitExpression.h>
+#include <plang/QuitException.h>
 
 using namespace plang;
 
@@ -14,13 +15,20 @@ int main(int argc, char** argv)
 	char buf[kBufSize];
 	Parser parser;
 
-	while (true) {
-		std::cout << ">";
-		std::cin.getline(buf, kBufSize);
-		TokenStream tokstr(buf);
-		Expression expression = parser.parse(tokstr);
-		
-		expression.evaluate();
-		std::cout << std::endl;
+	try
+	{
+		while (true) {
+			std::cout << ">";
+			std::cin.getline(buf, kBufSize);
+			TokenStream tokstr(buf);
+			Expression* expression = parser.parse(tokstr);
+
+			expression->evaluate();
+			std::cout << std::endl;
+		}
+	}
+	catch (QuitException ex)
+	{
+		return EXIT_SUCCESS;
 	}
 }

@@ -2,9 +2,10 @@
 #include <plang/def.h>
 #include <plang/Expression.h>
 #include <plang/QuitExpression.h>
+#include <plang/QuitException.h>
 
 using namespace plang;
 
 void QuitExpression::evaluate() {
-	std::cout << "Test";
+	throw QuitException();
 }
