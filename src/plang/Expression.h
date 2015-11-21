@@ -10,7 +10,7 @@ namespace plang {
 	{
 		public:
 			virtual void evaluate();
-			void Expression::addExpressionNode(ExpressionNode expressionNode);
+			void addExpressionNode(ExpressionNode expressionNode);
 		private:
 			std::vector<ExpressionNode> _expressionNodes;
 	};
