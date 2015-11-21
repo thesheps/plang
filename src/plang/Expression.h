@@ -3,16 +3,25 @@
 
 #include <plang/def.h>
 #include <plang/ExpressionNode.h>
+#include <plang/EndOfExpressionException.h>
 #include <vector>
 
 namespace plang {
 	class Expression
 	{
 		public:
-			virtual void evaluate();
+			virtual Expression evaluate();
 			void addExpressionNode(ExpressionNode expressionNode);
 		private:
 			std::vector<ExpressionNode> _expressionNodes;
+	};
+
+	class NullExpression : public Expression 
+	{
+		Expression evaluate()
+		{
+			throw EndOfExpressionException();
+		};
 	};
 }
 
