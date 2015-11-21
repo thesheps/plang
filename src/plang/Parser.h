@@ -9,7 +9,7 @@ namespace plang {
 	class Parser 
 	{
 		public:
-			Expression* parse(TokenStream tokenStream);
+			Expression parse(TokenStream tokenStream);
 	};
 }
 

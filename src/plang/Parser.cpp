@@ -4,14 +4,15 @@
 #include <plang/Parser.h>
 #include <plang/TokenStream.h>
 #include <plang/Expression.h>
-#include <plang/QuitExpression.h>
+#include <plang/QuitException.h>
 #include <plang/ExpressionNode.h>
 #include <plang/ExpressionNodeFactory.h>
 
 using namespace plang;
 
-Expression* Parser::parse(TokenStream tokenStream)
+Expression Parser::parse(TokenStream tokenStream)
 {
+	Expression expression = Expression();
 	ExpressionNodeFactory factory;
 	Token tok;
 
@@ -19,13 +20,15 @@ Expression* Parser::parse(TokenStream tokenStream)
 		if (tok == Token(":")) {
 			if ((tok = tokenStream.getNext()) != Token::Eos) {
 				if (tok == Token("q")) {
-					return new QuitExpression();
+					throw QuitException();
 				}
 			}
 		}
 		else {
-			ExpressionNode e = factory.create(tok);
-			return new Expression();
+			ExpressionNode ex = factory.create(tok);
+			expression.addExpressionNode(ex);
 		}
 	}
+
+	return expression;
 }

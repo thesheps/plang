@@ -15,13 +15,15 @@ namespace plang {
 				kTypeInvalid = 0,
 				kTypeAdd,
 				kTypeSubtract,
+				kTypeMultiply,
+				kTypeDivide,
 				kTypeCount
 			};
 
 			Type getType() const { return m_type; }
 
 		private:
-			Operator(Type _type  = kTypeInvalid)
+			Operator(Type _type = kTypeInvalid)
 				: m_type(_type)
 			{ 
 				PLANG_ASSERT(m_type < kTypeCount);

@@ -22,7 +22,9 @@ static bool IsNumeric(char _c)
 static std::map<char, OperatorExpressionNode> Operators =
 {
 	{ '+', OperatorExpressionNode(Operator::kTypeAdd) },
-	{ '-', OperatorExpressionNode(Operator::kTypeSubtract) }
+	{ '-', OperatorExpressionNode(Operator::kTypeSubtract) },
+	{ '*', OperatorExpressionNode(Operator::kTypeMultiply) },
+	{ '/', OperatorExpressionNode(Operator::kTypeDivide) }
 };
 
 // \todo String literals would be a special case here (they're operands

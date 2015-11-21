@@ -4,7 +4,6 @@
 #include <plang/TokenStream.h>
 #include <plang/Parser.h>
 #include <plang/Expression.h>
-#include <plang/QuitExpression.h>
 #include <plang/QuitException.h>
 
 using namespace plang;
@@ -21,9 +20,9 @@ int main(int argc, char** argv)
 			std::cout << ">";
 			std::cin.getline(buf, kBufSize);
 			TokenStream tokstr(buf);
-			Expression* expression = parser.parse(tokstr);
+			Expression expression = parser.parse(tokstr);
 
-			expression->evaluate();
+			expression.evaluate();
 			std::cout << std::endl;
 		}
 	}

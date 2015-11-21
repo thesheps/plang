@@ -13,8 +13,8 @@ namespace plang {
 			enum Type
 			{
 				kTypeUnknown = 0,
-				kTypeOperand,
-				kTypeOperator
+				kTypeOperand = 1,
+				kTypeOperator = 2
 			};
 
 			ExpressionNode(Type t) : type(t) {}
