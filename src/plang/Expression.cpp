@@ -1,19 +1,27 @@
 #include <iostream>
+#include <queue>
+#include <stack>
 #include <plang/def.h>
 #include <plang/Expression.h>
 #include <plang/ExpressionNode.h>
 
 using namespace plang;
 
-Expression Expression::evaluate() {
-	std::cout << "Evaluating Expression...";
-
+void Expression::evaluate() {
 	for (int i=0; i<_expressionNodes.size(); i++) {
 		ExpressionNode ex = _expressionNodes[i];
-		std::cout << ex.type;
-	}
+	
+		switch (ex.type)
+		{
+			case ex.kTypeOperand:
+				_outputQueue.push(ex);
+				break;
 
-	return NullExpression();
+			case ex.kTypeOperator:
+				_operatorStack.push(ex);
+				break;
+		}
+	}
 }
 
 void Expression::addExpressionNode(ExpressionNode expressionNode) {

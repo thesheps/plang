@@ -5,23 +5,19 @@
 #include <plang/ExpressionNode.h>
 #include <plang/EndOfExpressionException.h>
 #include <vector>
+#include <queue>
+#include <stack>
 
 namespace plang {
 	class Expression
 	{
 		public:
-			virtual Expression evaluate();
+			virtual void evaluate();
 			void addExpressionNode(ExpressionNode expressionNode);
 		private:
+			std::queue<ExpressionNode> _outputQueue;
+			std::stack<ExpressionNode> _operatorStack;
 			std::vector<ExpressionNode> _expressionNodes;
-	};
-
-	class NullExpression : public Expression 
-	{
-		Expression evaluate()
-		{
-			throw EndOfExpressionException();
-		};
 	};
 }
 
