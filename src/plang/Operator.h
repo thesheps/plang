@@ -17,7 +17,14 @@ namespace plang {
 				kTypeSubtract,
 				kTypeMultiply,
 				kTypeDivide,
+				kTypeExponentiation,
 				kTypeCount
+			};
+
+			enum Associativity
+			{
+				kLeft,
+				kRight
 			};
 
 			Type getType() const { return m_type; }

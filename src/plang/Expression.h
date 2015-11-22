@@ -1,18 +1,18 @@
 #ifndef plang_Expression_h
 #define plang_Expression_h
 
-#include <plang/def.h>
-#include <plang/ExpressionNode.h>
-#include <plang/EndOfExpressionException.h>
 #include <vector>
 #include <queue>
 #include <stack>
+
+#include <plang/def.h>
+#include <plang/ExpressionNode.h>
 
 namespace plang {
 	class Expression
 	{
 		public:
-			virtual void evaluate();
+			virtual int evaluate();
 			void addExpressionNode(ExpressionNode expressionNode);
 		private:
 			std::queue<ExpressionNode> _outputQueue;

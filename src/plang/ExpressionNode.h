@@ -17,8 +17,27 @@ namespace plang {
 				kTypeOperator = 2
 			};
 
-			ExpressionNode(Type t) : type(t) {}
-			const Type type;
+			ExpressionNode() : expressionType(kTypeUnknown)
+			{
+			}
+
+			ExpressionNode(Operand::IntType i) : expressionType(kTypeOperand)
+			{
+				m_i = i;
+			}
+
+			ExpressionNode(Operator::Type t, Operator::Associativity a, int p) : expressionType(kTypeOperator)
+			{
+				operatorType = t;
+				associativity = a;
+				precedence = p;
+			}
+
+			const Type expressionType;
+			Operand::IntType m_i;
+			Operator::Type operatorType;
+			Operator::Associativity associativity;
+			int precedence;
 	};
 }
 

@@ -34,9 +34,7 @@ static const char* getOpTokenString(char _c)
 	return 0;
 }
 
-TokenStream::TokenStream(char* _buf_)
-	: m_buf(_buf_)
-	, m_optoken(0)
+TokenStream::TokenStream(char* _buf_) : m_buf(_buf_) , m_optoken(0)
 {
 	PLANG_ASSERT(_buf_);
 	//	advance to first token

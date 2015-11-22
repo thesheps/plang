@@ -3,8 +3,6 @@
 
 #include <plang/def.h>
 #include <plang/Token.h>
-#include <plang/OperandExpressionNode.h>
-#include <plang/OperatorExpressionNode.h>
 #include <plang/ExpressionNodeFactory.h>
 
 using namespace plang;
@@ -19,12 +17,13 @@ static bool IsNumeric(char _c)
 	return _c >= '0' && _c <='9';
 }
 
-static std::map<char, OperatorExpressionNode> Operators =
+static std::map<char, ExpressionNode> Operators =
 {
-	{ '+', OperatorExpressionNode(Operator::kTypeAdd) },
-	{ '-', OperatorExpressionNode(Operator::kTypeSubtract) },
-	{ '*', OperatorExpressionNode(Operator::kTypeMultiply) },
-	{ '/', OperatorExpressionNode(Operator::kTypeDivide) }
+	{ '^', ExpressionNode(Operator::kTypeExponentiation, Operator::kRight, 4) },
+	{ '/', ExpressionNode(Operator::kTypeDivide, Operator::kLeft, 3) },
+	{ '*', ExpressionNode(Operator::kTypeMultiply, Operator::kLeft, 3) },
+	{ '+', ExpressionNode(Operator::kTypeAdd, Operator::kLeft, 2) },
+	{ '-', ExpressionNode(Operator::kTypeSubtract, Operator::kLeft, 2) }
 };
 
 // \todo String literals would be a special case here (they're operands
@@ -39,7 +38,7 @@ ExpressionNode ExpressionNodeFactory::create(const Token& _token)
 	if (isAlpha || isNumeric) { // token is a numeric literal or a symbol
 		if (isNumeric) {
 			long i = atol(t);
-			return OperandExpressionNode((Operand::IntType)i);
+			return ExpressionNode((Operand::IntType)i);
 		}
 		else {
 		}

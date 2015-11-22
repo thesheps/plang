@@ -3,8 +3,6 @@
 #include <plang/plang.h>
 #include <plang/TokenStream.h>
 #include <plang/ExpressionNode.h>
-#include <plang/OperandExpressionNode.h>
-#include <plang/OperatorExpressionNode.h>
 #include <plang/ExpressionNodeFactory.h>
 
 #include <string>
@@ -23,9 +21,9 @@ SCENARIO("Mathematical expression is tokenised to ExpressionNodes", "[parsing][t
 			ExpressionNode e3 = factory.create(tokstr.getNext());
 
 			THEN("Then the resultant ExpressionNodes are of the correct type") {
-				REQUIRE(e1.type == ExpressionNode::kTypeOperand);
-				REQUIRE(e2.type == ExpressionNode::kTypeOperator);
-				REQUIRE(e3.type == ExpressionNode::kTypeOperand);
+				REQUIRE(e1.expressionType == ExpressionNode::kTypeOperand);
+				REQUIRE(e2.expressionType == ExpressionNode::kTypeOperator);
+				REQUIRE(e3.expressionType == ExpressionNode::kTypeOperand);
 			}
 		}
 	}
