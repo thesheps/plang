@@ -9,7 +9,7 @@ namespace plang {
 	class ExpressionNodeFactory
 	{
 		public:
-			ExpressionNode create(const Token& _token);
+			ExpressionNode* create(const Token& _token);
 	};
 }
 

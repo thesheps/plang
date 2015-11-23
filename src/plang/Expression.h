@@ -13,11 +13,11 @@ namespace plang {
 	{
 		public:
 			virtual int evaluate();
-			void addExpressionNode(ExpressionNode expressionNode);
+			void addExpressionNode(ExpressionNode* expressionNode);
 		private:
-			std::queue<ExpressionNode> _outputQueue;
-			std::stack<ExpressionNode> _operatorStack;
-			std::vector<ExpressionNode> _expressionNodes;
+			std::queue<OperandExpressionNode*> _outputQueue;
+			std::stack<OperatorExpressionNode*> _operatorStack;
+			std::vector<ExpressionNode*> _expressionNodes;
 	};
 }
 

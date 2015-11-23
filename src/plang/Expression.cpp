@@ -1,6 +1,8 @@
 #include <iostream>
 #include <queue>
 #include <stack>
+#include <typeinfo>
+
 #include <plang/def.h>
 #include <plang/Expression.h>
 #include <plang/ExpressionNode.h>
@@ -13,32 +15,36 @@ int Expression::evaluate()
 
 	while (i < _expressionNodes.size())
 	{
-		ExpressionNode ex = _expressionNodes[i];
+		ExpressionNode* ex = _expressionNodes[i];
 	
-		switch (ex.expressionType)
+		if (ex->expressionNodeType == ex->kTypeOperand)
 		{
-			case ex.kTypeOperand:
-				_outputQueue.push(ex);
-				break;
+			OperandExpressionNode* node = (OperandExpressionNode*)ex;
+			_outputQueue.push(node);
+		}
 
-			case ex.kTypeOperator:
-				if (_operatorStack.size() > 0)
+		else if (ex->expressionNodeType == ex->kTypeOperator)
+		{
+			if (_operatorStack.size() > 0)
+			{
+				OperatorExpressionNode* node = (OperatorExpressionNode*)ex;
+				OperatorExpressionNode* op = _operatorStack.top();
+
+				if ((node->_associativity == Operator::kLeft && node->_precedence <= op->_precedence) ||
+					(node->_associativity == Operator::kRight && node->_precedence < op->_precedence))
 				{
-					ExpressionNode e = _operatorStack.top();
+					_operatorStack.pop();
+					OperandExpressionNode* arg1 = _outputQueue.front();
+					_outputQueue.pop();
+					OperandExpressionNode* arg2 = _outputQueue.front();
+					_outputQueue.pop();
 
-					if ((ex.associativity == Operator::kLeft && ex.precedence <= e.precedence) ||
-						(ex.associativity == Operator::kRight && ex.precedence < e.precedence))
-					{
-						_operatorStack.pop();
-						ExpressionNode arg1 = _outputQueue.front();
-						_outputQueue.pop();
-						ExpressionNode arg2 = _outputQueue.front();
-						_outputQueue.pop();
-					}
+					OperandExpressionNode* result = op->execute(arg1, arg2);
+					_outputQueue.push(result);
 				}
+			}
 
-				_operatorStack.push(ex);
-				break;
+			_operatorStack.push((OperatorExpressionNode*)ex);
 		}
 
 		i++;
@@ -47,7 +53,7 @@ int Expression::evaluate()
 	return 2;
 }
 
-void Expression::addExpressionNode(ExpressionNode expressionNode) 
+void Expression::addExpressionNode(ExpressionNode* expressionNode) 
 {
 	_expressionNodes.push_back(expressionNode);
 }

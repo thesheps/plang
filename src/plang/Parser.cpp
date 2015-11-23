@@ -25,7 +25,7 @@ Expression Parser::parse(TokenStream tokenStream)
 			}
 		}
 		else {
-			ExpressionNode ex = factory.create(tok);
+			ExpressionNode* ex = factory.create(tok);
 			expression.addExpressionNode(ex);
 		}
 	}

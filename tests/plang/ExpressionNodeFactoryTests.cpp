@@ -16,14 +16,14 @@ SCENARIO("Mathematical expression is tokenised to ExpressionNodes", "[parsing][t
 	
 		WHEN("The sum is parsed") {
 			ExpressionNodeFactory factory;
-			ExpressionNode e1 = factory.create(tokstr.getNext());
-			ExpressionNode e2 = factory.create(tokstr.getNext());
-			ExpressionNode e3 = factory.create(tokstr.getNext());
+			ExpressionNode* e1 = factory.create(tokstr.getNext());
+			ExpressionNode* e2 = factory.create(tokstr.getNext());
+			ExpressionNode* e3 = factory.create(tokstr.getNext());
 
 			THEN("Then the resultant ExpressionNodes are of the correct type") {
-				REQUIRE(e1.expressionType == ExpressionNode::kTypeOperand);
-				REQUIRE(e2.expressionType == ExpressionNode::kTypeOperator);
-				REQUIRE(e3.expressionType == ExpressionNode::kTypeOperand);
+				REQUIRE(e1->expressionNodeType == ExpressionNode::kTypeOperand);
+				REQUIRE(e2->expressionNodeType == ExpressionNode::kTypeOperator);
+				REQUIRE(e3->expressionNodeType == ExpressionNode::kTypeOperand);
 			}
 		}
 	}
