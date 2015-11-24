@@ -7,6 +7,8 @@
 
 #include <plang/def.h>
 #include <plang/ExpressionNode.h>
+#include <plang/OperandExpressionNode.h>
+#include <plang/OperatorExpressionNode.h>
 
 namespace plang {
 	class Expression

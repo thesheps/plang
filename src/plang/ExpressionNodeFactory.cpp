@@ -4,6 +4,9 @@
 #include <plang/def.h>
 #include <plang/Token.h>
 #include <plang/ExpressionNodeFactory.h>
+#include <plang/ExpressionNode.h>
+#include <plang/OperatorExpressionNode.h>
+#include <plang/OperandExpressionNode.h>
 
 using namespace plang;
 
