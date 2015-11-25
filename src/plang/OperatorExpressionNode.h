@@ -11,19 +11,14 @@ namespace plang {
 	class OperatorExpressionNode : public ExpressionNode
 	{
 		public:
-			OperatorExpressionNode(Operator::Type operatorType, Operator::Associativity associativity, int precedence) : ExpressionNode(kTypeOperator)
+			OperatorExpressionNode(Operator::Associativity associativity, int precedence) : ExpressionNode(kTypeOperator)
 			{
-				_operatorType = operatorType;
 				_associativity = associativity;
 				_precedence = precedence;
 			}
 
-			OperandExpressionNode* execute(OperandExpressionNode* arg1, OperandExpressionNode* arg2)
-			{
-				return new OperandExpressionNode(arg1->_value + arg2->_value);
-			}
+			virtual OperandExpressionNode* execute(OperandExpressionNode* arg1, OperandExpressionNode* arg2) = 0;
 
-		Operator::Type _operatorType;
 		Operator::Associativity _associativity;
 		int _precedence;
 	};

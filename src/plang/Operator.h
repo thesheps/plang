@@ -10,33 +10,11 @@ namespace plang {
 		friend class ExpressionNode;
 
 		public:
-			enum Type
-			{
-				kTypeInvalid = 0,
-				kTypeAdd,
-				kTypeSubtract,
-				kTypeMultiply,
-				kTypeDivide,
-				kTypeExponentiation,
-				kTypeCount
-			};
-
 			enum Associativity
 			{
 				kLeft,
 				kRight
 			};
-
-			Type getType() const { return m_type; }
-
-		private:
-			Operator(Type _type = kTypeInvalid)
-				: m_type(_type)
-			{ 
-				PLANG_ASSERT(m_type < kTypeCount);
-			}
-			
-			Type m_type;
 	};
 }
 

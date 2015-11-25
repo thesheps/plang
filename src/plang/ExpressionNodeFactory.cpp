@@ -6,6 +6,11 @@
 #include <plang/ExpressionNodeFactory.h>
 #include <plang/ExpressionNode.h>
 #include <plang/OperatorExpressionNode.h>
+#include <plang/AdditionOperatorExpressionNode.h>
+#include <plang/SubtractionOperatorExpressionNode.h>
+#include <plang/MultiplicationOperatorExpressionNode.h>
+#include <plang/DivisionOperatorExpressionNode.h>
+#include <plang/ExponentiationOperatorExpressionNode.h>
 #include <plang/OperandExpressionNode.h>
 
 using namespace plang;
@@ -22,11 +27,11 @@ static bool IsNumeric(char _c)
 
 static std::map<char, ExpressionNode*> Operators =
 {
-	{ '^', new OperatorExpressionNode(Operator::kTypeExponentiation, Operator::kRight, 4) },
-	{ '/', new OperatorExpressionNode(Operator::kTypeDivide, Operator::kLeft, 3) },
-	{ '*', new OperatorExpressionNode(Operator::kTypeMultiply, Operator::kLeft, 3) },
-	{ '+', new OperatorExpressionNode(Operator::kTypeAdd, Operator::kLeft, 2) },
-	{ '-', new OperatorExpressionNode(Operator::kTypeSubtract, Operator::kLeft, 2) }
+	{ '^', new ExponentiationOperatorExpressionNode() },
+	{ '/', new DivisionOperatorExpressionNode() },
+	{ '*', new MultiplicationOperatorExpressionNode() },
+	{ '+', new AdditionOperatorExpressionNode() },
+	{ '-', new SubtractionOperatorExpressionNode() }
 };
 
 // \todo String literals would be a special case here (they're operands
