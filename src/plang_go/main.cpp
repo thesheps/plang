@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 			TokenStream tokstr(buf);
 			Expression expression = parser.parse(tokstr);
 
-			expression.evaluate();
+			std::cout << expression.evaluate();
 			std::cout << std::endl;
 		}
 	}

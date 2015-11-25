@@ -33,14 +33,7 @@ int Expression::evaluate()
 				if ((node->_associativity == Operator::kLeft && node->_precedence <= op->_precedence) ||
 					(node->_associativity == Operator::kRight && node->_precedence < op->_precedence))
 				{
-					_operatorStack.pop();
-					OperandExpressionNode* arg1 = _outputQueue.front();
-					_outputQueue.pop();
-					OperandExpressionNode* arg2 = _outputQueue.front();
-					_outputQueue.pop();
-
-					OperandExpressionNode* result = op->execute(arg1, arg2);
-					_outputQueue.push(result);
+					ApplyOperator(op);
 				}
 			}
 
@@ -50,10 +43,13 @@ int Expression::evaluate()
 		i++;
 	}
 
-	return 2;
-}
+	i = _operatorStack.size();
+	while (i > 0)
+	{
+		OperatorExpressionNode* op = _operatorStack.top();
+		ApplyOperator(op);
+		i--;
+	}
 
-void Expression::addExpressionNode(ExpressionNode* expressionNode) 
-{
-	_expressionNodes.push_back(expressionNode);
+	return _outputQueue.front()->_value;
 }
