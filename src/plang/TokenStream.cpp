@@ -4,13 +4,7 @@
 
 using namespace plang;
 
-static const char* kOpTokenStrings[] =
-{
-	//	arithmetic
-	"=", "+", "-", "/", "*", 
-	//	control
-	":", "(", ")", "{", "}",
-};
+static const char* kOpTokenStrings = "=+-/*:(){}";
 
 static bool isWhiteSpace(char _c)
 {
@@ -26,17 +20,15 @@ static bool isWhiteSpace(char _c)
 
 static const char* getOpTokenString(char _c)
 {
-	for (const char** it = kOpTokenStrings; *it != 0; ++it) {
-		if (_c == **it) {
-			return *it;
+	for (const char* it = kOpTokenStrings; *it != '\0'; ++it) {
+		if (_c == *it) {
+			return it;
 		}
 	}
 	return 0;
 }
 
-TokenStream::TokenStream(char* _buf_)
-	: m_buf(_buf_)
-	, m_optoken(0)
+TokenStream::TokenStream(char* _buf_) : m_buf(_buf_) , m_optoken(0)
 {
 	PLANG_ASSERT(_buf_);
 	//	advance to first token
