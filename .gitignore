@@ -18,3 +18,4 @@ ide/vs*/*.user
 !ide/vs*/*.props
 ide/plang.sublime-project
 ide/plang.sublime-workspace
+.vs/
