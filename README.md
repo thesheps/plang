@@ -1,5 +1,5 @@
 # plang
-plang (pronounced pee-lang) is an experimental software language written in c++
+plang (pronounced pee-lang) is an experimental software language written jointly in c++ and .net
 
 ### Status
 [![Build Status](https://travis-ci.org/thesheps/plang.png)](https://travis-ci.org/thesheps/plang)
