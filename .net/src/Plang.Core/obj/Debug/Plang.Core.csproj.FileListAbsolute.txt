@@ -1,0 +1,5 @@
+C:\source\plang\.net\src\Plang.Core\bin\Debug\Plang.Core.dll
+C:\source\plang\.net\src\Plang.Core\bin\Debug\Plang.Core.pdb
+C:\source\plang\.net\src\Plang.Core\obj\Debug\Plang.Core.csprojResolveAssemblyReference.cache
+C:\source\plang\.net\src\Plang.Core\obj\Debug\Plang.Core.dll
+C:\source\plang\.net\src\Plang.Core\obj\Debug\Plang.Core.pdb
