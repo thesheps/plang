@@ -6,4 +6,4 @@ plang (pronounced pee-lang) is an experimental software language written in c++
 
 Check out the wiki [here](../../wiki)
 
-Check out the language specification [here](../../specification)
+Check out the language specification [here](../../wiki/language-specification)
