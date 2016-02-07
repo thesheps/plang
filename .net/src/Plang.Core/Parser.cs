@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Plang.Core.Exceptions;
 using Plang.Core.Expressions;
 
 namespace Plang.Core
@@ -9,58 +10,59 @@ namespace Plang.Core
     {
         public int Parse(Stream stream)
         {
-            var operators = new List<OperatorExpressionNode>();
-            var operands = new List<OperandExpressionNode>();
+            if (stream == null) throw new NullStreamException();
+
             var i = stream.ReadByte();
-            var s = string.Empty;
+            var operandString = string.Empty;
 
             do
             {
                 var c = Convert.ToChar(i);
+                var expressionNode = CreateExpressionNode(c);
 
-                if (IsOperator(c))
+                if (expressionNode is NullOperandExpressionNode)
                 {
-                    if (!string.IsNullOrEmpty(s))
-                    {
-                        operands.Add(new OperandExpressionNode(int.Parse(s)));
-                        s = string.Empty;
-                    }
+                    operandString += c;
                 }
-
-                switch (c)
+                else
                 {
-                    case '+':
-                        operators.Add(new AdditionOperatorExpressionNode());
-                        break;
-
-                    case '-':
-                        operators.Add(new SubtractionOperatorExpressionNode());
-                        break;
-
-                    case '*':
-                        operators.Add(new MultiplicationOperatorExpressionNode());
-                        break;
-
-                    case '/':
-                        operators.Add(new DivisionOperatorExpressionNode());
-                        break;
-
-                    default:
-                        s += c.ToString();
-                        break;
+                    _operators.Add(expressionNode as OperatorExpressionNode);
+                    AddOperand(operandString);
+                    operandString = string.Empty;
                 }
 
                 i = stream.ReadByte();
             } while (i > -1);
 
-            operands.Add(new OperandExpressionNode(int.Parse(s)));
+            AddOperand(operandString);
 
-            return operators[0].Execute(operands[0], operands[1]);
+            return _operators[0].Execute(_operands[0], _operands[1]);
         }
 
-        private static bool IsOperator(char c)
+        private void AddOperand(string operand)
         {
-            return c == '+' || c == '-' || c == '*' || c == '/';
+            if (string.IsNullOrEmpty(operand)) return;
+            _operands.Add(new OperandExpressionNode(int.Parse(operand)));
         }
+
+        private static ExpressionNode CreateExpressionNode(char c)
+        {
+            switch (c)
+            {
+                case '+':
+                    return new AdditionOperatorExpressionNode();
+                case '-':
+                    return new SubtractionOperatorExpressionNode();
+                case '*':
+                    return new MultiplicationOperatorExpressionNode();
+                case '/':
+                    return new DivisionOperatorExpressionNode();
+                default:
+                    return new NullOperandExpressionNode();
+            }
+        }
+
+        private readonly IList<OperatorExpressionNode> _operators = new List<OperatorExpressionNode>();
+        private readonly IList<OperandExpressionNode> _operands = new List<OperandExpressionNode>();
     }
 }

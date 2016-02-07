@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Expressions\ExpressionNode.cs" />
+    <Compile Include="Exceptions\NullStreamException.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Expressions\AdditionOperatorExpressionNode.cs" />
     <Compile Include="Expressions\DivisionOperatorExpressionNode.cs" />
