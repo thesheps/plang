@@ -5,3 +5,5 @@ C:\source\plang\.net\tests\Plang.Core.UnitTests\bin\Debug\nunit.framework.xml
 C:\source\plang\.net\tests\Plang.Core.UnitTests\obj\Debug\Plang.Core.UnitTests.csprojResolveAssemblyReference.cache
 C:\source\plang\.net\tests\Plang.Core.UnitTests\obj\Debug\Plang.Core.UnitTests.dll
 C:\source\plang\.net\tests\Plang.Core.UnitTests\obj\Debug\Plang.Core.UnitTests.pdb
+C:\source\plang\.net\tests\Plang.Core.UnitTests\bin\Debug\Plang.Core.dll
+C:\source\plang\.net\tests\Plang.Core.UnitTests\bin\Debug\Plang.Core.pdb
