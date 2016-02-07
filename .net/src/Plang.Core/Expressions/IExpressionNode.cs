@@ -1,6 +1,6 @@
 namespace Plang.Core.Expressions
 {
-    public class ExpressionNode
+    public interface IExpressionNode
     {
     }
 }

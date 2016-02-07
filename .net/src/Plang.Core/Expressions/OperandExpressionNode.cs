@@ -1,10 +1,10 @@
 namespace Plang.Core.Expressions
 {
-    public class NullOperandExpressionNode : ExpressionNode
+    public class NullOperandExpressionNode : IExpressionNode
     {
     }
 
-    public class OperandExpressionNode : ExpressionNode
+    public class OperandExpressionNode : IExpressionNode
     {
         public int Value { get; }
 

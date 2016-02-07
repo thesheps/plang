@@ -40,14 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Expressions\ExpressionNode.cs" />
     <Compile Include="Exceptions\NullStreamException.cs" />
+    <Compile Include="Expressions\IExpressionNode.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Expressions\AdditionOperatorExpressionNode.cs" />
     <Compile Include="Expressions\DivisionOperatorExpressionNode.cs" />
     <Compile Include="Expressions\MultiplicationOperatorExpressionNode.cs" />
     <Compile Include="Expressions\OperandExpressionNode.cs" />
-    <Compile Include="Expressions\OperatorExpressionNode.cs" />
+    <Compile Include="Expressions\IOperatorExpressionNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Expressions\SubtractionOperatorExpressionNode.cs" />
   </ItemGroup>

@@ -20,8 +20,17 @@ namespace Plang.Core.UnitTests
         [TestCase("15+23", 38)]
         [TestCase("15-11", 4)]
         [TestCase("10*77", 770)]
-        [TestCase("30/15", 2)]
+        [TestCase("300/15", 20)]
         public void WhenIParseAnExpressionWithMultipleDigits_ThenTheResultIsAsExpected(string expression, int expectedResult)
+        {
+            var stream = GetStream(expression);
+            var parser = new Parser();
+
+            Assert.That(parser.Parse(stream), Is.EqualTo(expectedResult));
+        }
+
+        [TestCase("3*3*3", 27)]
+        public void WhenIParseAnExpressionWithMoreThanTwoOperands_ThenTheResultIsAsExpected(string expression, int expectedResult)
         {
             var stream = GetStream(expression);
             var parser = new Parser();

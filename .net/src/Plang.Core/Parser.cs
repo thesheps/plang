@@ -26,7 +26,7 @@ namespace Plang.Core
                 }
                 else
                 {
-                    _operators.Add(expressionNode as OperatorExpressionNode);
+                    _operators.Add(expressionNode as IOperatorExpressionNode);
                     AddOperand(operandString);
                     operandString = string.Empty;
                 }
@@ -45,7 +45,7 @@ namespace Plang.Core
             _operands.Add(new OperandExpressionNode(int.Parse(operand)));
         }
 
-        private static ExpressionNode CreateExpressionNode(char c)
+        private static IExpressionNode CreateExpressionNode(char c)
         {
             switch (c)
             {
@@ -62,7 +62,7 @@ namespace Plang.Core
             }
         }
 
-        private readonly IList<OperatorExpressionNode> _operators = new List<OperatorExpressionNode>();
+        private readonly IList<IOperatorExpressionNode> _operators = new List<IOperatorExpressionNode>();
         private readonly IList<OperandExpressionNode> _operands = new List<OperandExpressionNode>();
     }
 }
