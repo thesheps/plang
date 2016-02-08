@@ -12,49 +12,50 @@ namespace Plang.Core
         public int Parse(Stream stream)
         {
             if (stream == null) throw new NullStreamException();
-
-            var i = stream.ReadByte();
             var operandString = string.Empty;
 
-            do
+            using (var streamReader = new StreamReader(stream))
             {
-                var expressionNode = CreateExpressionNode(Convert.ToChar(i));
-
-                if (expressionNode is NullOperandExpressionNode)
-                    operandString += Convert.ToChar(i);
-                else
+                while (!streamReader.EndOfStream)
                 {
-                    var op = (IOperatorExpressionNode)expressionNode;
+                    var c = Convert.ToChar(streamReader.Read());
+                    var expressionNode = CreateExpressionNode(c);
 
-                    if (!string.IsNullOrEmpty(operandString))
-                        _operands.Enqueue(new OperandExpressionNode(int.Parse(operandString)));
-
-                    if (_operators.Any() && (op.Associativity == Associativity.Left && op.Precedence <= _operators.Peek().Precedence))
+                    if (expressionNode is NullOperandExpressionNode)
+                        operandString += c;
+                    else
                     {
-                        ProcessOperation();
+                        var op = (IOperatorExpressionNode)expressionNode;
+                        AddOperand(operandString);
+
+                        if (_operators.Any() &&
+                            (op.Associativity == Associativity.Left && op.Precedence <= _operators.Peek().Precedence) ||
+                            (op.Associativity == Associativity.Right && op.Precedence < _operators.Peek().Precedence))
+                        {
+                            ProcessOperation();
+                        }
+
+                        _operators.Push(op);
+                        operandString = string.Empty;
                     }
-
-                    _operators.Push(op);
-                    operandString = string.Empty;
                 }
+            }
 
-                i = stream.ReadByte();
-            } while (i > -1);
-
-            if (!string.IsNullOrEmpty(operandString))
-                _operands.Enqueue(new OperandExpressionNode(int.Parse(operandString)));
-
+            AddOperand(operandString);
             ProcessOperation();
 
             return _operands.Peek().Value;
         }
 
+        private void AddOperand(string operandString)
+        {
+            if (!string.IsNullOrEmpty(operandString))
+                _operands.Enqueue(new OperandExpressionNode(int.Parse(operandString)));
+        }
+
         private void ProcessOperation()
         {
-            var operation = _operators.Pop();
-            var op1 = _operands.Dequeue();
-            var op2 = _operands.Dequeue();
-            _operands.Enqueue(operation.Execute(op1, op2));
+            _operands.Enqueue(_operators.Pop().Execute(_operands.Dequeue(), _operands.Dequeue()));
         }
 
         private static IExpressionNode CreateExpressionNode(char c)

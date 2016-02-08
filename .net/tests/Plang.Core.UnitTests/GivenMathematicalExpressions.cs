@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text;
 using NUnit.Framework;
 
 namespace Plang.Core.UnitTests
@@ -40,12 +41,8 @@ namespace Plang.Core.UnitTests
 
         private static Stream GetStream(string expression)
         {
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
-            writer.Write(expression);
-            writer.Flush();
-            stream.Position = 0;
-            return stream;
+            var byteArray = Encoding.UTF8.GetBytes(expression);
+            return new MemoryStream(byteArray);
         }
     }
 }
