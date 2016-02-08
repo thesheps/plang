@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Plang.Core.Exceptions;
 using Plang.Core.Expressions;
 
@@ -17,32 +18,43 @@ namespace Plang.Core
 
             do
             {
-                var c = Convert.ToChar(i);
-                var expressionNode = CreateExpressionNode(c);
+                var expressionNode = CreateExpressionNode(Convert.ToChar(i));
 
                 if (expressionNode is NullOperandExpressionNode)
-                {
-                    operandString += c;
-                }
+                    operandString += Convert.ToChar(i);
                 else
                 {
-                    _operators.Add(expressionNode as IOperatorExpressionNode);
-                    AddOperand(operandString);
+                    var op = (IOperatorExpressionNode)expressionNode;
+
+                    if (!string.IsNullOrEmpty(operandString))
+                        _operands.Enqueue(new OperandExpressionNode(int.Parse(operandString)));
+
+                    if (_operators.Any() && (op.Associativity == Associativity.Left && op.Precedence <= _operators.Peek().Precedence))
+                    {
+                        ProcessOperation();
+                    }
+
+                    _operators.Push(op);
                     operandString = string.Empty;
                 }
 
                 i = stream.ReadByte();
             } while (i > -1);
 
-            AddOperand(operandString);
+            if (!string.IsNullOrEmpty(operandString))
+                _operands.Enqueue(new OperandExpressionNode(int.Parse(operandString)));
 
-            return _operators[0].Execute(_operands[0], _operands[1]);
+            ProcessOperation();
+
+            return _operands.Peek().Value;
         }
 
-        private void AddOperand(string operand)
+        private void ProcessOperation()
         {
-            if (string.IsNullOrEmpty(operand)) return;
-            _operands.Add(new OperandExpressionNode(int.Parse(operand)));
+            var operation = _operators.Pop();
+            var op1 = _operands.Dequeue();
+            var op2 = _operands.Dequeue();
+            _operands.Enqueue(operation.Execute(op1, op2));
         }
 
         private static IExpressionNode CreateExpressionNode(char c)
@@ -57,12 +69,14 @@ namespace Plang.Core
                     return new MultiplicationOperatorExpressionNode();
                 case '/':
                     return new DivisionOperatorExpressionNode();
+                case '^':
+                    return new ExponentiationOperatorExpressionNode();
                 default:
                     return new NullOperandExpressionNode();
             }
         }
 
-        private readonly IList<IOperatorExpressionNode> _operators = new List<IOperatorExpressionNode>();
-        private readonly IList<OperandExpressionNode> _operands = new List<OperandExpressionNode>();
+        private readonly Stack<IOperatorExpressionNode> _operators = new Stack<IOperatorExpressionNode>();
+        private readonly Queue<OperandExpressionNode> _operands = new Queue<OperandExpressionNode>();
     }
 }

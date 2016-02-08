@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Expressions\EndOfStreamExpressionNode.cs" />
     <Compile Include="Exceptions\NullStreamException.cs" />
+    <Compile Include="Expressions\ExponentiationOperatorExpressionNode.cs" />
     <Compile Include="Expressions\IExpressionNode.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Expressions\AdditionOperatorExpressionNode.cs" />
