@@ -25,35 +25,40 @@ namespace Plang.Core
                         operandString += c;
                     else
                     {
-                        var op = (IOperatorExpressionNode)expressionNode;
-                        AddOperand(operandString);
+                        PushOperand(operandString);
+                        operandString = string.Empty;
 
-                        if (_operators.Any() &&
-                            (op.Associativity == Associativity.Left && op.Precedence <= _operators.Peek().Precedence) ||
-                            (op.Associativity == Associativity.Right && op.Precedence < _operators.Peek().Precedence))
+                        var o1 = (IOperatorExpressionNode)expressionNode;
+
+                        if (_operators.Any())
                         {
-                            ProcessOperation();
+                            var o2 = _operators.Peek();
+
+                            if (o1.Associativity == Associativity.Left && o1.Precedence <= o2.Precedence ||
+                                o1.Associativity == Associativity.Right && o1.Precedence < o2.Precedence)
+                            {
+                                PopOperation();
+                            }
                         }
 
-                        _operators.Push(op);
-                        operandString = string.Empty;
+                        _operators.Push(o1);
                     }
                 }
             }
 
-            AddOperand(operandString);
-            ProcessOperation();
+            PushOperand(operandString);
+            PopOperation();
 
             return _operands.Peek().Value;
         }
 
-        private void AddOperand(string operandString)
+        private void PushOperand(string operandString)
         {
             if (!string.IsNullOrEmpty(operandString))
                 _operands.Enqueue(new OperandExpressionNode(int.Parse(operandString)));
         }
 
-        private void ProcessOperation()
+        private void PopOperation()
         {
             _operands.Enqueue(_operators.Pop().Execute(_operands.Dequeue(), _operands.Dequeue()));
         }
